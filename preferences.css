@@ -93,7 +93,7 @@ body {
 .header div:hover .dropdown-content {
   display: block;
   visibility: visible;
-  transform: translateY(0);
+  transform: translateY(-0.2em);
 }
 
 .header img {
@@ -111,7 +111,7 @@ body {
   border-radius: var(--border-radius);
 }
 .header .dropdown span {
-  margin-left: 0.3em;
+  margin-left: 0.5em;
   color: var(--secondary--color--500);
 }
 .header .dropdown:hover {
@@ -134,15 +134,17 @@ body {
 
 .header .dropdown-content {
   position: absolute;
-  background-color: #f9f9f9;
   width: 100%;
   z-index: 1;
-  left: 0.1em;
-  background-color: var(--primary--color--600);
-  border-radius: var(--border-radius);
-  transform: translateY(-1em);
+  background-color: var(--primary--color--500);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  transform: translateY(1em);
   transition: transform 0.3s;
   visibility: hidden;
+}
+
+.header .dropdown-content:hover .dropdown {
+  background-color: var(--accent--color--600);
 }
 
 .header .dropdown-content ul li a {
