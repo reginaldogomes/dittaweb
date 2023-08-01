@@ -145,6 +145,7 @@ body {
 
 .header .dropdown-content:hover .dropdown {
   background-color: var(--accent--color--600);
+  display: block;
 }
 
 .header .dropdown-content ul li a {
@@ -257,7 +258,7 @@ main {
   width: 100vw;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   position: absolute;
   bottom: 0;
@@ -269,7 +270,13 @@ main {
   font-size: 0.7rem;
 }
 
-.footer a {
+.btn-floating {
+  position: fixed;
+  bottom: 96px;
+  right: 96px;
+}
+
+.btn-floating a {
   display: flex;
   align-items: center;
   font-size: 1.2rem;
@@ -280,12 +287,12 @@ main {
   text-decoration: none;
   transition: 0.3s;
 }
-.footer a:hover {
+.btn-floating a:hover {
   background-color: var(--accent--color--400);
   transition: background-color 0.3s;
 }
 
-.footer a::before {
+.btn-floating a::before {
   content: "\F32F";
   font-family: "bootstrap-icons";
   font-size: 1.5rem;
