@@ -189,6 +189,21 @@ nav {
 
 nav ul {
   display: flex;
+  height: 15px;
+  align-items: center;
+}
+
+nav ul li {
+  padding: 0 5px 0 5px;
+  border-right: 1px solid var(--primary--color--700);
+}
+nav ul li:last-child {
+  border-right: 0;
+}
+
+nav ul li a {
+  font-size: 0.9rem;
+  color: var(--primary--color--700);
 }
 
 main {
