@@ -1,7 +1,7 @@
 function createMenu() {
   return `
     <div class="menu">
-      <a href="#/about" class="menu__item">
+      <a href="#/page2" class="menu__item">
         <h3>Vendite</h3>
         <p>Funzioni per la gestione delle vendite, prelievo, fatturazione...</p>
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
