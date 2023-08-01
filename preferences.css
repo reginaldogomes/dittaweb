@@ -113,7 +113,12 @@ body {
 .header .dropdown span {
   margin-left: 0.5em;
   color: var(--secondary--color--500);
+  text-align: left;
 }
+.header .dropdown span small {
+  display: block;
+}
+
 .header .dropdown:hover {
   background-color: var(--primary--color--500);
   .dropdown-content {
@@ -143,29 +148,26 @@ body {
   visibility: hidden;
 }
 
-.header .dropdown-content:hover .dropdown {
-  background-color: var(--accent--color--600);
-  display: block;
-}
+/* .header .dropdown-content:hover {
+  .dropdown {
+    background-color: var(--primary--color--500);
+  }
+} */
 
 .header .dropdown-content ul li a {
-  display: flex;
+  display: block;
   padding: 0.8em;
+  color: var(--primary--color--700);
+  font-size: 0.8rem;
+  width: 100%;
+}
+.header .dropdown-content ul li a:hover {
+  background-color: var(--primary--color--600);
+  overflow: hidden;
 }
 .header .dropdown-content ul li a span {
   margin-left: 0.3em;
 }
-
-.header .dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* .header::after {
-  content: "\F134";
-  justify-content: flex-end;
-  font-family: "bootstrap-icons";
-  font-size: 2rem;
-} */
 
 #header_info {
   font-size: small !important;
@@ -184,28 +186,42 @@ body {
 nav {
   width: 100vw;
   display: flex;
+  align-items: center;
   background-color: var(--primary--color--500);
-  padding: 1em 1.5em 1em 1em;
+  padding: 1em;
 }
 
-nav ul {
+nav ul,
+li {
   display: flex;
-  height: 15px;
   align-items: center;
 }
-
-nav ul li {
+nav ul li::before {
+  content: "\F285";
+  font-family: "bootstrap-icons";
+  font-size: 0.8rem;
   padding: 0 5px 0 5px;
-  border-right: 1px solid var(--primary--color--700);
 }
-nav ul li:last-child {
-  border-right: 0;
+
+nav ul li:nth-child(1)::before {
+  content: "\F5D3";
+  font-family: "bootstrap-icons";
+  transition: 0.3s;
 }
 
 nav ul li a {
   font-size: 0.9rem;
-  color: var(--primary--color--700);
+  color: var(--secondary--color--500);
 }
+
+nav ul li a:hover {
+  color: var(--secondary--color--200);
+  transition: color 0.3s;
+}
+
+/* nav ul li a:last-child {
+  color: var(--secondary--color--700);
+} */
 
 main {
   width: 100vw;
