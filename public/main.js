@@ -1,75 +1,5 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset='utf-8'>
-  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <title>Page Title</title>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <link rel='stylesheet' type='text/css' media='screen' href='preferences.css'>
-</head>
-
-<body>
-
-  <header class="header">
-    <img src="/images/dittaweb.svg" alt="Logo">
-    <div>
-      <button class="dropdown">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
-          viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-        </svg>
-        <span>Paulo Paganelli<small>Amministrativo - Sviluppo</small></span>
-      </button>
-      <!-- <img src="/images/avatar.png" alt="Avatar"> -->
-      <div class="dropdown-content">
-        <ul>
-          <li>
-            <a href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-person-fill" viewBox="0 0 16 16">
-                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-              </svg>
-              <span>Profile</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear"
-                viewBox="0 0 16 16">
-                <path
-                  d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
-                <path
-                  d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z" />
-              </svg>
-              <span>Settings</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                  d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
-                <path fill-rule="evenodd"
-                  d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
-              </svg>
-              <span>Logout</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </header>
-  <nav class="navbar">
-    <ul>
-      <li><a href="#">Menù amministrativo</a></li>
-      <li><a href="#">Servizi</a></li>
-      <li><a href="#">Consultazione servizi</a></li>
-    </ul>
-  </nav>
-  <main>
+function createMenu() {
+  return `
     <div class="menu">
       <a href="" class="menu__item">
         <h3>Vendite</h3>
@@ -160,17 +90,40 @@
         </svg>
       </a>
     </div>
-  </main>
+  `;
+}
+function createMenu2() {
+  return `
+    <div class="menu">
+      <h1>teste</h1>
+    </div>
+  `;
+}
 
-  <footer class="footer">
-    <p>© Sargo Soc. Coop. 2008-2023 (3) Chrome 115.0.0.0 - unknown V.01-12-2021 08.47.11</p>
-  </footer>
-  <div class="btn-floating">
-    <a href="#">Invia Messaggio</a>
-  </div>
+// Exemplo de uso: 
+const menuHtml = createMenu();
+const menuHtml2 = createMenu2();
+console.log(menuHtml);
 
-  <script src='main.js'></script>
+// Função para atualizar o conteúdo da página com base na URL
+function updateContent() {
+  const hash = window.location.hash;
+  let content = document.getElementById('content');
 
-</body>
+  if (hash === '') {
+    content.innerHTML = menuHtml;
+  } else if (hash === '#/page2') {
+    content.innerHTML = menuHtml2;
+  } else if (hash === '#/contact') {
+    content.innerHTML = '<h2>Contato</h2>';
+  } else {
+    content.innerHTML = '<h2>Página não encontrada</h2>';
+  }
+}
 
-</html>
+// Evento hashchange para atualizar o conteúdo quando a URL mudar
+window.addEventListener('hashchange', updateContent);
+
+// Atualize o conteúdo da página com base na URL atual
+updateContent();
+
