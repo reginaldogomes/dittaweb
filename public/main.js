@@ -93,10 +93,66 @@ function createMenu() {
   `;
 }
 function createLogin() {
+  const navbar = document.getElementById("navbar")
+  const header = document.getElementById("header");
+  const footer = document.getElementById("footer");
+  navbar.style.display = 'none';
+  header.style.display = 'none';
+  footer.style.display = 'none';
   return `
-    <div class="menu">
-      <h1>teste</h1>
-    </div>
+    <div class="login">
+      <form method="POST" action="login.php" name="loginform">
+      <table border="0" align="center">
+        <tbody>
+          <tr>
+            <td height="30" align="center">
+              <font color="#223DC2" size="+1"><b>Dittaweb - Servizio di Gestione Aziendale via Web</b></font>
+            </td>
+          </tr>
+          <tr>
+            <td height="30" align="center">
+              <font color="GREEN"><b>PC autorizzato</b></font>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <div class="iphost">Sei collegato/a il 02-08-2023 22.17.36 con l'indirizzo IP 189.34.24.88 via il provider
+                bd221858.virtua.com.br<br>Ogni utilizzo improprio di questo sito verrà&nbsp; perseguito a norma di legge.
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table border="0" align="center">
+                <tbody>
+                  <tr>
+                    <td width="40%"></td>
+                    <td width="140" height="40"><b>Codice azienda :</b></td>
+                    <td><input name="azienda" class="bold" type="text" size="4" maxlength="4" align="left"></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td height="40"><b>Codice utente :</b></td>
+                    <td><input name="user" class="bold" type="text" size="14" maxlength="16" align="left"></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td height="40"><b>Parola chiave :</b></td>
+                    <td><input name="password" type="PASSWORD" size="14" maxlength="16" align="left"></td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" height="40" align="center">
+                      <a href="javascript:document.loginform.submit()" class="tasto">Entra</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
   `;
 }
 
