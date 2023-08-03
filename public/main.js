@@ -1,6 +1,9 @@
 window.onload = function() {
   const passwordInput = document.getElementById("password");
   const showPasswordCheckbox = document.getElementById("show-password");
+  const aziendaInput = document.getElementById("azienda");
+  const userInput = document.getElementById("user");
+  const btnInput = document.getElementById("btn-submit");
 
   // Desabilita o checkbox "Mostrar senha" inicialmente
   showPasswordCheckbox.disabled = true;
@@ -12,7 +15,6 @@ window.onload = function() {
 };
 
 function togglePasswordVisibility() {
-  
   const passwordInput = document.getElementById("password");
   const showPasswordCheckbox = document.getElementById("show-password");
 
