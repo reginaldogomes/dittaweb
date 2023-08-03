@@ -70,9 +70,10 @@ li {
 }
 
 input {
-  padding: 8px;
+  padding: 12px;
   border-radius: var(--border-radius);
   -webkit-border-radius: var(--border-radius);
+  border: 1px solid var(--primary--color--600);
 }
 
 body {
@@ -272,15 +273,15 @@ main {
   transform: translateY(0.2em);
 }
 
-.menu .menu__item h3,
+/* .menu .menu__item h3,
 p {
   color: var(--secondary--color--400);
-}
+} */
 
-.menu .menu__item:hover h3,
+/* .menu .menu__item:hover h3,
 p {
   color: var(--secondary--color--300);
-}
+} */
 
 .menu .menu__item svg {
   align-self: flex-end;
@@ -316,29 +317,41 @@ p {
   -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.75);
 }
-.login .login__form .login__form__group {
+.login .login__form .form__group {
   display: flex;
   flex-direction: column;
   padding: 0.5em 0 0.5em;
+  column-gap: 4px;
 }
-.login .login__form .login__form__group:nth-child(4) {
+.login .login__form .form__group:nth-child(4) {
   flex-direction: row;
+  padding: 0.9em 0 0.9em;
+  row-gap: 5px;
 }
-.login .login__form .login__form__group:nth-child(4) div {
+.login .login__form .form__group:nth-child(4) div {
   flex-direction: row;
   width: 50%;
 }
-.login .login__form .login__form__group:nth-child(4) div:nth-child(1) {
+.login .login__form .form__group:nth-child(4) div:nth-child(1) {
   flex-basis: 200px;
 }
-.login .login__form .login__form__group:nth-child(4) div:nth-child(2) {
+.login .login__form .form__group:nth-child(4) div:nth-child(2) {
   display: flex;
   align-items: center;
+  column-gap: 8px;
 }
 .login .login__form h1 {
   font-size: 1.4rem;
-  margin-bottom: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  text-align: center;
 }
+
+.login .login__form h1 span {
+  display: block;
+  font-size: 1rem;
+}
+
 .login .login__form a {
   padding: 1.2em;
   background-color: var(--primary--color--700);
@@ -347,6 +360,11 @@ p {
   -webkit-border-radius: var(--border-radius);
   text-align: center;
   color: var(--primary--color--100);
+  transition: 0.3s;
+}
+.login .login__form a:hover {
+  background-color: var(--primary--color--600);
+  transform: translateY(0.2em);
 }
 /**LOGIN STYLES**/
 
@@ -397,7 +415,7 @@ p {
   border-style: none;
 }
 
-A:visited.naviga,
+/* A:visited.naviga,
 A.naviga {
   text-decoration: none;
   font-size: 14px;
@@ -409,7 +427,7 @@ A.naviga {
 A:hover.naviga {
   color: #9e9e9e;
   transition: color 0.3s;
-}
+} */
 
 P {
   font-size: small;

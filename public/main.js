@@ -1,6 +1,18 @@
+function togglePasswordVisibility() {
+  const passwordInput = document.getElementById("password");
+  const showPasswordCheckbox = document.getElementById("show-password");
+
+  if (showPasswordCheckbox.checked) {
+    passwordInput.type = "text"; // Mostra a senha
+  } else {
+    passwordInput.type = "password"; // Esconde a senha
+  }
+}
+
 function createMenu() {
   return `
-  <div class="menu" style=""><a href="vendite.php" class="menu__item">
+  <div class="menu">
+  <a href="vendite.php" class="menu__item">
   <h3>Vendite</h3>
   <p>Funzioni per la gestione delle vendite, prelievo, fatturazione...</p>
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
@@ -12,7 +24,8 @@ function createMenu() {
       d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z">
     </path>
   </svg>
-</a><a href="servizi.php" class="menu__item">
+</a>
+<a href="servizi.php" class="menu__item">
   <h3>Servizi</h3>
   <p>Gestione delle prestazioni professionali.</p>
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
@@ -164,35 +177,33 @@ function createLogin() {
   return `
     <div class="login">
       <form class="login__form">
-        <h1>Dittaweb - Servizio di Gestione Aziendale via Web</h1>
-        <div class="login__form__group">
+        <h1>Dittaweb<span>Servizio di Gestione Aziendale via Web</span></h1>
+        <div class="form__group">
           <label for="email">Codice azienda</label>
-          <input type="text" id="azienda" name="azienda" placeholder="Codice azienda" required>
+          <input type="text" id="azienda" name="azienda" required>
         </div>
-        <div class="login__form__group">
+        <div class="form__group">
           <label for="email">Codice utente</label>
-          <input type="text" id="user" name="user" placeholder="Codice utente" required>
+          <input type="text" id="user" name="user" required>
         </div>
-        <div class="login__form__group">
+        <div class="form__group">
           <div>
             <label for="password">Parola chiave</label>
-            <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+            <input type="password" id="password" name="password" required>
           </div>
           <div>
             <input type="checkbox" id="show-password" onclick="togglePasswordVisibility()">
-            <label for="show-password">Mostrar senha</label>
+            <label for="show-password"><small>Mostrar senha</small></label>
           </div>
         </div>
-        <a href="javascript:document.loginform.submit()">Entra</a>
+        <a href="javascript:document.loginform.submit()" id="btn-submit">Entra</a>
       </form>
     </div>
   `;
 }
-
 // Exemplo de uso: 
 const menuHtml = createMenu();
 const loginHtml = createLogin();
-// console.log(menuHtml);
 
 // Função para atualizar o conteúdo da página com base na URL
 function updateContent() {
