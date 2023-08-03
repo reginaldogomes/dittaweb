@@ -174,10 +174,14 @@ function createLogin() {
           <input type="text" id="user" name="user" placeholder="Codice utente" required>
         </div>
         <div class="login__form__group">
-          <label for="password">Parola chiave </label>
-          <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
-          <input type="checkbox" id="show-password" onclick="togglePasswordVisibility()">
-          <label for="show-password">Mostrar senha</label>
+          <div>
+            <label for="password">Parola chiave</label>
+            <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+          </div>
+          <div>
+            <input type="checkbox" id="show-password" onclick="togglePasswordVisibility()">
+            <label for="show-password">Mostrar senha</label>
+          </div>
         </div>
         <a href="javascript:document.loginform.submit()">Entra</a>
       </form>

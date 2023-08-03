@@ -71,6 +71,8 @@ li {
 
 input {
   padding: 8px;
+  border-radius: var(--border-radius);
+  -webkit-border-radius: var(--border-radius);
 }
 
 body {
@@ -298,14 +300,12 @@ p {
   padding: 12px;
   border-radius: var(--border-radius);
   -webkit-border-radius: var(--border-radius);
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
+  margin: 30px auto;
   width: 40%;
 }
 .login .login__form {
   display: flex;
-  column-gap: 5px;
+  column-gap: 1.2em;
   flex-direction: column;
   flex-wrap: wrap;
   background-color: var(--primary--color--200);
@@ -319,6 +319,34 @@ p {
 .login .login__form .login__form__group {
   display: flex;
   flex-direction: column;
+  padding: 0.5em 0 0.5em;
+}
+.login .login__form .login__form__group:nth-child(4) {
+  flex-direction: row;
+}
+.login .login__form .login__form__group:nth-child(4) div {
+  flex-direction: row;
+  width: 50%;
+}
+.login .login__form .login__form__group:nth-child(4) div:nth-child(1) {
+  flex-basis: 200px;
+}
+.login .login__form .login__form__group:nth-child(4) div:nth-child(2) {
+  display: flex;
+  align-items: center;
+}
+.login .login__form h1 {
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+}
+.login .login__form a {
+  padding: 1.2em;
+  background-color: var(--primary--color--700);
+  margin-top: 16px;
+  border-radius: var(--border-radius);
+  -webkit-border-radius: var(--border-radius);
+  text-align: center;
+  color: var(--primary--color--100);
 }
 /**LOGIN STYLES**/
 
