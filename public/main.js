@@ -1,158 +1,187 @@
 function createMenu() {
   return `
-    <div class="menu">
-      <a href="#/login" class="menu__item">
-        <h3>Vendite</h3>
-        <p>Funzioni per la gestione delle vendite, prelievo, fatturazione...</p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-          class="bi bi-chevron-double-right" viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
-          <path fill-rule="evenodd"
-            d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
-        </svg>
-      </a>
-      <a href="" class="menu__item">
-        <h3>Vendite</h3>
-        <p>Funzioni per la gestione delle vendite, prelievo, fatturazione...</p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-          class="bi bi-chevron-double-right" viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
-          <path fill-rule="evenodd"
-            d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
-        </svg>
-      </a>
-      <a href="" class="menu__item">
-        <h3>Vendite</h3>
-        <p>Funzioni per la gestione delle vendite, prelievo, fatturazione...</p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-          class="bi bi-chevron-double-right" viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
-          <path fill-rule="evenodd"
-            d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
-        </svg>
-      </a>
-      <a href="" class="menu__item">
-        <h3>Vendite</h3>
-        <p>Funzioni per la gestione delle vendite, prelievo, fatturazione...</p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-          class="bi bi-chevron-double-right" viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
-          <path fill-rule="evenodd"
-            d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
-        </svg>
-      </a>
-      <a href="" class="menu__item">
-        <h3>Vendite</h3>
-        <p>Funzioni per la gestione delle vendite, prelievo, fatturazione...</p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-          class="bi bi-chevron-double-right" viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
-          <path fill-rule="evenodd"
-            d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
-        </svg>
-      </a>
-      <a href="" class="menu__item">
-        <h3>Vendite</h3>
-        <p>Funzioni per la gestione delle vendite, prelievo, fatturazione...</p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-          class="bi bi-chevron-double-right" viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
-          <path fill-rule="evenodd"
-            d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
-        </svg>
-      </a>
-      <a href="" class="menu__item">
-        <h3>Vendite</h3>
-        <p>Funzioni per la gestione delle vendite, prelievo, fatturazione...</p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-          class="bi bi-chevron-double-right" viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
-          <path fill-rule="evenodd"
-            d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
-        </svg>
-      </a>
-      <a href="" class="menu__item">
-        <h3>Vendite</h3>
-        <p>Funzioni per la gestione delle vendite, prelievo, fatturazione...</p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-          class="bi bi-chevron-double-right" viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
-          <path fill-rule="evenodd"
-            d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
-        </svg>
-      </a>
-    </div>
+  <div class="menu" style=""><a href="vendite.php" class="menu__item">
+  <h3>Vendite</h3>
+  <p>Funzioni per la gestione delle vendite, prelievo, fatturazione...</p>
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+    class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+    <path fill-rule="evenodd"
+      d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+    <path fill-rule="evenodd"
+      d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+  </svg>
+</a><a href="servizi.php" class="menu__item">
+  <h3>Servizi</h3>
+  <p>Gestione delle prestazioni professionali.</p>
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+    class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+    <path fill-rule="evenodd"
+      d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+    <path fill-rule="evenodd"
+      d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+  </svg>
+</a><a href="acquisti.php" class="menu__item">
+  <h3>Acquisti</h3>
+  <p>Gestione degli acquisti (ordini fornitori, ricevimento merce...).</p>
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+    class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+    <path fill-rule="evenodd"
+      d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+    <path fill-rule="evenodd"
+      d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+  </svg>
+</a><a href="contabilita.php" class="menu__item">
+  <h3>Contabilità</h3>
+  <p>Contabilità generale (Conti, libri IVA, bilancio, registrazioni...).</p>
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+    class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+    <path fill-rule="evenodd"
+      d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+    <path fill-rule="evenodd"
+      d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+  </svg>
+</a><a href="assoc_gestione.php" class="menu__item">
+  <h3>Associazione</h3>
+  <p>Gestione dei soci / clienti (iscrizioni, attivazione, fatturazione...).</p>
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+    class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+    <path fill-rule="evenodd"
+      d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+    <path fill-rule="evenodd"
+      d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+  </svg>
+</a><a href="produzione.php" class="menu__item">
+  <h3>Produzione</h3>
+  <p>Gestione della trasformazione delle materie prime.</p>
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+    class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+    <path fill-rule="evenodd"
+      d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+    <path fill-rule="evenodd"
+      d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+  </svg>
+</a><a href="magazzino.php" class="menu__item">
+  <h3>Magazzino</h3>
+  <p>Gestione del magazzino.</p>
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+    class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+    <path fill-rule="evenodd"
+      d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+    <path fill-rule="evenodd"
+      d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+  </svg>
+</a><a href="anagrafica.php" class="menu__item">
+  <h3>Anagrafica</h3>
+  <p>Gestione dei dati anagrafici (clienti, fornitori, rappresentanti, banche...)</p>
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+    class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+    <path fill-rule="evenodd"
+      d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+    <path fill-rule="evenodd"
+      d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+  </svg>
+</a><a href="sistema.php" class="menu__item">
+  <h3>Sistema</h3>
+  <p>Funzioni avanzate per la gestione del sistema.</p>
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+    class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+    <path fill-rule="evenodd"
+      d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+    <path fill-rule="evenodd"
+      d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+  </svg>
+</a><a href="interfaccia_doc.php" class="menu__item">
+  <h3>Interfaccia</h3>
+  <p>Permette di scambiare documenti con altre aziende che usano Dittaweb.</p>
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+    class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+    <path fill-rule="evenodd"
+      d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+    <path fill-rule="evenodd"
+      d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+  </svg>
+</a><a href="vendite_web.php" class="menu__item">
+  <h3>Vendite web</h3>
+  <p>Gestione delle vendite web online tramite sito pubblico.</p>
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+    class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+    <path fill-rule="evenodd"
+      d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+    <path fill-rule="evenodd"
+      d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+  </svg>
+</a><a href="utilita.php" class="menu__item">
+  <h3>Utilità</h3>
+  <p>Funzioni utili di sistema (cambio parola chiave...).</p>
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+    class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+    <path fill-rule="evenodd"
+      d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+    <path fill-rule="evenodd"
+      d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+  </svg>
+</a><a href="docs/primipassidw.pdf" class="menu__item">
+  <h3>Primi passi</h3>
+  <p>Una mini guida in formato PDF per iniziare ad utilizzare Dittaweb.</p>
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+    class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+    <path fill-rule="evenodd"
+      d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+    <path fill-rule="evenodd"
+      d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z">
+    </path>
+  </svg>
+</a>
+</div>
   `;
 }
 function createLogin() {
-  const navbar = document.getElementById("navbar")
-  const header = document.getElementById("header");
-  const footer = document.getElementById("footer");
-  navbar.style.display = 'none';
-  header.style.display = 'none';
-  footer.style.display = 'none';
   return `
     <div class="login">
-      <form method="POST" action="login.php" name="loginform">
-      <table border="0" align="center">
-        <tbody>
-          <tr>
-            <td height="30" align="center">
-              <font color="#223DC2" size="+1"><b>Dittaweb - Servizio di Gestione Aziendale via Web</b></font>
-            </td>
-          </tr>
-          <tr>
-            <td height="30" align="center">
-              <font color="GREEN"><b>PC autorizzato</b></font>
-            </td>
-          </tr>
-          <tr>
-            <td align="center">
-              <div class="iphost">Sei collegato/a il 02-08-2023 22.17.36 con l'indirizzo IP 189.34.24.88 via il provider
-                bd221858.virtua.com.br<br>Ogni utilizzo improprio di questo sito verrà&nbsp; perseguito a norma di legge.
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <table border="0" align="center">
-                <tbody>
-                  <tr>
-                    <td width="40%"></td>
-                    <td width="140" height="40"><b>Codice azienda :</b></td>
-                    <td><input name="azienda" class="bold" type="text" size="4" maxlength="4" align="left"></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td height="40"><b>Codice utente :</b></td>
-                    <td><input name="user" class="bold" type="text" size="14" maxlength="16" align="left"></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td height="40"><b>Parola chiave :</b></td>
-                    <td><input name="password" type="PASSWORD" size="14" maxlength="16" align="left"></td>
-                  </tr>
-                  <tr>
-                    <td colspan="3" height="40" align="center">
-                      <a href="javascript:document.loginform.submit()" class="tasto">Entra</a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </form>
-  </div>
+      <form class="login__form">
+        <h1>Dittaweb - Servizio di Gestione Aziendale via Web</h1>
+        <div class="login__form__group">
+          <label for="email">Codice azienda</label>
+          <input type="text" id="azienda" name="azienda" placeholder="Codice azienda" required>
+        </div>
+        <div class="login__form__group">
+          <label for="email">Codice utente</label>
+          <input type="text" id="user" name="user" placeholder="Codice utente" required>
+        </div>
+        <div class="login__form__group">
+          <label for="password">Parola chiave </label>
+          <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+          <input type="checkbox" id="show-password" onclick="togglePasswordVisibility()">
+          <label for="show-password">Mostrar senha</label>
+        </div>
+        <a href="javascript:document.loginform.submit()">Entra</a>
+      </form>
+    </div>
   `;
 }
 

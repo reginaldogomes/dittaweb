@@ -43,7 +43,7 @@
   --tertiary--900: #1f1f1f;
 
   --font-size: 16px;
-  --font-color: var(--secondary--color--600);
+  --font-color: var(--secondary--color--800);
   --font-face: "Roboto", sans-serif;
 
   --border-radius: 0.3em;
@@ -67,6 +67,10 @@ a {
 
 li {
   list-style-type: none;
+}
+
+input {
+  padding: 8px;
 }
 
 body {
@@ -256,7 +260,6 @@ main {
   -webkit-border-radius: var(--border-radius);
   transition: 0.2s;
   min-width: 20%;
-  flex-basis: auto;
 }
 .menu .menu__item:hover {
   background-color: var(--primary--color--300);
@@ -289,6 +292,36 @@ p {
   opacity: 1;
 }
 
+/**LOGIN STYLES**/
+.login {
+  background-color: var(--primary--color--200);
+  padding: 12px;
+  border-radius: var(--border-radius);
+  -webkit-border-radius: var(--border-radius);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  width: 40%;
+}
+.login .login__form {
+  display: flex;
+  column-gap: 5px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: var(--primary--color--200);
+  padding: 1.2em;
+  border-radius: var(--border-radius);
+  -webkit-border-radius: var(--border-radius);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.75);
+}
+.login .login__form .login__form__group {
+  display: flex;
+  flex-direction: column;
+}
+/**LOGIN STYLES**/
+
 .footer {
   width: 100vw;
   display: flex;
@@ -303,7 +336,7 @@ p {
   font-size: 0.7rem;
 }
 
-.btn-floating {
+/* .btn-floating {
   position: fixed;
   bottom: 96px;
   right: 96px;
@@ -315,7 +348,6 @@ p {
   font-size: 1.2rem;
   background-color: var(--accent--color--500);
   padding: 12px;
-  color: var(--accent--color--100);
   border-radius: 8px;
   text-decoration: none;
   transition: 0.3s;
@@ -330,7 +362,7 @@ p {
   font-family: "bootstrap-icons";
   font-size: 1.5rem;
   margin: 5px;
-}
+} */
 
 .regola {
   border: 0px;
