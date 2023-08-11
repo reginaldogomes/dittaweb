@@ -1,18 +1,15 @@
-window.onload = function() {
-  const passwordInput = document.getElementById("password");
-  const showPasswordCheckbox = document.getElementById("show-password");
-  const aziendaInput = document.getElementById("azienda");
-  const userInput = document.getElementById("user");
-  const btnInput = document.getElementById("btn-submit");
+// (function setupPasswordInput() {
+//   const passwordInput = document.getElementById("password");
+//   const showPasswordCheckbox = document.getElementById("show-password");
 
-  // Desabilita o checkbox "Mostrar senha" inicialmente
-  showPasswordCheckbox.disabled = true;
+//   // Desabilita o checkbox "Mostrar senha" inicialmente
+//   showPasswordCheckbox.disabled = true;
 
-  // Habilita ou desabilita o checkbox "Mostrar senha" de acordo com o campo de senha
-  passwordInput.addEventListener("input", function() {
-    showPasswordCheckbox.disabled = passwordInput.value.trim() === "";
-  });
-};
+//   // Habilita ou desabilita o checkbox "Mostrar senha" de acordo com o campo de senha
+//   passwordInput.addEventListener("input", function() {
+//     showPasswordCheckbox.disabled = passwordInput.value.trim() === "";
+//   });
+// })();
 
 function togglePasswordVisibility() {
   const passwordInput = document.getElementById("password");
