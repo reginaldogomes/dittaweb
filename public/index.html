@@ -72,8 +72,35 @@
   </nav>
   <main id="content">
 
-    <div class="search">
-      <div>
+    <div class="contents">
+      <div class="selezione">
+        <table border="0" width="100%">
+          <tbody>
+            <tr>
+              <td height="30" align="center"><strong>C.SC : </strong><input id="sel_conto" class="conto" size="10"
+                  maxlength="10" value="" ondblclick="NewWindow('contcontotrova.php?id_campo=sel_conto',600,500)"
+                  onblur="TrovaConto(this.value); SalvaSessionVar(this.id,this.value);"><br><br>(Se sottoconto è zero,
+                mostra tutti i sottoconti. Esempio: 13.0)</td>
+              <td align="left"><input id="sel_elenco" type="checkbox" value="S"
+                  onchange="SalvaSessionVar(this.id,this.checked); if(this.checked) jQuery('#sel_saldo').attr('checked',false);">
+                Mostra solo saldi<br><br><input id="sel_saldo" type="checkbox" value="S"
+                  onchange="SalvaSessionVar(this.id,this.checked); if(this.checked) jQuery('#sel_elenco').attr('checked',false);  ">
+                Mostra solo saldi diversi da zero<br><br><input id="sel_salta" type="checkbox" value="S"
+                  onchange="SalvaSessionVar(this.id,this.checked)"> Salta pagina PDF</td>
+              <td align="center">Dal <input id="sel_data_dal" type="text" size="10" maxlength="10"
+                  onchange="SalvaSessionVar(this.id,this.value)" value="01-01-2023"> al <input id="sel_data_al"
+                  type="text" size="10" maxlength="10" onchange="SalvaSessionVar(this.id,this.value)"
+                  value="15-08-2023"></td>
+            </tr>
+            <tr>
+              <td height="50" colspan="3">
+                <div id="desc_conto" class="chiaro"> </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="regola">
         <div class="menu-search">
           <table border="0" onclick="ClearMyTimeInterval();">
             <tbody>
@@ -82,79 +109,78 @@
               </tr>
 
               <tr>
-                <td><a href="#" class="clickarea" onclick="if(! confermauscita) {OrdiniDaFatturare();}">Ordini da
+                <td><a href="#" onclick="if(! confermauscita) {OrdiniDaFatturare();}">Ordini da
                     fatturare</a></td>
               </tr>
 
               <tr>
-                <td><a href="#" class="clickarea" onclick="if(! confermauscita) {DDTDaFatturare();}">D.D.T. da
+                <td><a href="#" onclick="if(! confermauscita) {DDTDaFatturare();}">D.D.T. da
                     fatturare</a></td>
               </tr>
 
               <tr>
-                <td><a href="#" class="clickarea" onclick="if(! confermauscita) {ContoVenditaDaFatturare();}">C.V. da
+                <td><a href="#" onclick="if(! confermauscita) {ContoVenditaDaFatturare();}">C.V. da
                     fatturare</a></td>
               </tr>
 
               <tr>
-                <td><a href="#" class="clickarea"
-                    onclick="if(! confermauscita) {ConsegneDiretteDaFatturare(0);}">Consegne dirette<br>da fatturare</a>
+                <td><a href="#" onclick="if(! confermauscita) {ConsegneDiretteDaFatturare(0);}">Consegne dirette<br>da
+                    fatturare</a>
                 </td>
               </tr>
               <tr>
-                <td><a href="#" class="clickarea" style="color:yellow;" onclick="SelectSezionale()">Imposta
+                <td><a href="#" style="color:yellow;" onclick="SelectSezionale()">Imposta
                     sezionale</a></td>
               </tr>
               <tr>
-                <td><a href="#" class="clickarea"
+                <td><a href="#"
                     onclick="if(! confermauscita) {SetConfirmExit(true); CreaManuale('F',0,'',true,'',1,'',true);}">Fattura
                     di servizi<br>manuale</a></td>
               </tr>
               <tr>
-                <td><a href="#" class="clickarea"
-                    onclick="if(! confermauscita) {SetConfirmExit(true);CreaManuale('F');}">Fattura manuale</a></td>
+                <td><a href="#" onclick="if(! confermauscita) {SetConfirmExit(true);CreaManuale('F');}">Fattura
+                    manuale</a></td>
               </tr>
               <tr>
-                <td><a href="#" class="clickarea"
-                    onclick="if(! confermauscita) {SetConfirmExit(true);CreaManuale('C');}">Nota di credito</a></td>
+                <td><a href="#" onclick="if(! confermauscita) {SetConfirmExit(true);CreaManuale('C');}">Nota di
+                    credito</a></td>
               </tr>
               <tr>
-                <td><a href="#" class="clickarea"
-                    onclick="if(! confermauscita) {SetConfirmExit(true);CreaManuale('D');}">Nota di debito</a></td>
+                <td><a href="#" onclick="if(! confermauscita) {SetConfirmExit(true);CreaManuale('D');}">Nota di
+                    debito</a></td>
               </tr>
               <tr>
-                <td><a href="#" class="clickarea" onclick="if(! confermauscita) {SelElencoDoc('F');}">Elenco fatture e
+                <td><a href="#" onclick="if(! confermauscita) {SelElencoDoc('F');}">Elenco fatture e
                     N.D.</a></td>
               </tr>
               <tr>
-                <td><a href="#" class="clickarea" onclick="if(! confermauscita) {SelElencoDoc('C');}">Elenco N.C.</a>
+                <td><a href="#" onclick="if(! confermauscita) {SelElencoDoc('C');}">Elenco N.C.</a>
                 </td>
               </tr>
               <tr>
-                <td><a href="#" class="clickarea" onclick="if(! confermauscita) {SelElencoDoc('E');}">Fatture
+                <td><a href="#" onclick="if(! confermauscita) {SelElencoDoc('E');}">Fatture
                     esterometro</a></td>
               </tr>
               <tr>
-                <td><a href="#" class="clickarea" onclick="if(! confermauscita) {SelIncassi();}">Incassi</a></td>
+                <td><a href="#" onclick="if(! confermauscita) {SelIncassi();}">Incassi</a></td>
               </tr>
               <tr>
-                <td><a href="#" class="clickarea" onclick="if(! confermauscita) {SelIncassiScontrini();}">Incassi
+                <td><a href="#" onclick="if(! confermauscita) {SelIncassiScontrini();}">Incassi
                     scontrini</a></td>
               </tr>
               <tr>
-                <td><a href="#" class="clickareax" onclick="if(! confermauscita) {SceglieMagazzinoDefault();}">Cambia
+                <td><a href="#" onclick="if(! confermauscita) {SceglieMagazzinoDefault();}">Cambia
                     mio<br>magazzino</a></td>
               </tr>
               <tr>
-                <td><a href="#" class="clickarea" onclick="InvioDocElettronici()">Invia documenti<br>elettronici</a>
+                <td><a href="#" onclick="InvioDocElettronici()">Invia documenti<br>elettronici</a>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-      <div>teste 2</div>
-      <div>teste 2</div>
+      <div class="interna">teste 2</div>
     </div>
 
   </main>
@@ -162,8 +188,6 @@
   <!-- <footer class="footer" id="footer">
     <p>© Sargo Soc. Coop. 2008-2023 (3) Chrome 115.0.0.0 - unknown V.01-12-2021 08.47.11</p>
   </footer> -->
-
-
 </body>
 
 </html>
