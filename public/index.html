@@ -100,87 +100,213 @@
           </tbody>
         </table>
       </div>
-      <div class="regola">
-        <div class="menu-search">
-          <table border="0" onclick="ClearMyTimeInterval();">
-            <tbody>
-              <tr>
-                <td>Menù</td>
-              </tr>
+      <div class="comando">
+        <table border="0" onclick="ClearMyTimeInterval();">
+          <tbody>
+            <tr>
+              <td>Menù</td>
+            </tr>
 
-              <tr>
-                <td><a href="#" onclick="if(! confermauscita) {OrdiniDaFatturare();}">Ordini da
-                    fatturare</a></td>
-              </tr>
+            <tr>
+              <td><a href="#" onclick="if(! confermauscita) {OrdiniDaFatturare();}">Ordini da
+                  fatturare</a></td>
+            </tr>
 
-              <tr>
-                <td><a href="#" onclick="if(! confermauscita) {DDTDaFatturare();}">D.D.T. da
-                    fatturare</a></td>
-              </tr>
+            <tr>
+              <td><a href="#" onclick="if(! confermauscita) {DDTDaFatturare();}">D.D.T. da
+                  fatturare</a></td>
+            </tr>
 
-              <tr>
-                <td><a href="#" onclick="if(! confermauscita) {ContoVenditaDaFatturare();}">C.V. da
-                    fatturare</a></td>
-              </tr>
+            <tr>
+              <td><a href="#" onclick="if(! confermauscita) {ContoVenditaDaFatturare();}">C.V. da
+                  fatturare</a></td>
+            </tr>
 
-              <tr>
-                <td><a href="#" onclick="if(! confermauscita) {ConsegneDiretteDaFatturare(0);}">Consegne dirette<br>da
-                    fatturare</a>
-                </td>
-              </tr>
-              <tr>
-                <td><a href="#" style="color:yellow;" onclick="SelectSezionale()">Imposta
-                    sezionale</a></td>
-              </tr>
-              <tr>
-                <td><a href="#"
-                    onclick="if(! confermauscita) {SetConfirmExit(true); CreaManuale('F',0,'',true,'',1,'',true);}">Fattura
-                    di servizi<br>manuale</a></td>
-              </tr>
-              <tr>
-                <td><a href="#" onclick="if(! confermauscita) {SetConfirmExit(true);CreaManuale('F');}">Fattura
-                    manuale</a></td>
-              </tr>
-              <tr>
-                <td><a href="#" onclick="if(! confermauscita) {SetConfirmExit(true);CreaManuale('C');}">Nota di
-                    credito</a></td>
-              </tr>
-              <tr>
-                <td><a href="#" onclick="if(! confermauscita) {SetConfirmExit(true);CreaManuale('D');}">Nota di
-                    debito</a></td>
-              </tr>
-              <tr>
-                <td><a href="#" onclick="if(! confermauscita) {SelElencoDoc('F');}">Elenco fatture e
-                    N.D.</a></td>
-              </tr>
-              <tr>
-                <td><a href="#" onclick="if(! confermauscita) {SelElencoDoc('C');}">Elenco N.C.</a>
-                </td>
-              </tr>
-              <tr>
-                <td><a href="#" onclick="if(! confermauscita) {SelElencoDoc('E');}">Fatture
-                    esterometro</a></td>
-              </tr>
-              <tr>
-                <td><a href="#" onclick="if(! confermauscita) {SelIncassi();}">Incassi</a></td>
-              </tr>
-              <tr>
-                <td><a href="#" onclick="if(! confermauscita) {SelIncassiScontrini();}">Incassi
-                    scontrini</a></td>
-              </tr>
-              <tr>
-                <td><a href="#" onclick="if(! confermauscita) {SceglieMagazzinoDefault();}">Cambia
-                    mio<br>magazzino</a></td>
-              </tr>
-              <tr>
-                <td><a href="#" onclick="InvioDocElettronici()">Invia documenti<br>elettronici</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+            <tr>
+              <td><a href="#" onclick="if(! confermauscita) {ConsegneDiretteDaFatturare(0);}">Consegne dirette<br>da
+                  fatturare</a>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="#" style="color:yellow;" onclick="SelectSezionale()">Imposta
+                  sezionale</a></td>
+            </tr>
+            <tr>
+              <td><a href="#"
+                  onclick="if(! confermauscita) {SetConfirmExit(true); CreaManuale('F',0,'',true,'',1,'',true);}">Fattura
+                  di servizi<br>manuale</a></td>
+            </tr>
+            <tr>
+              <td><a href="#" onclick="if(! confermauscita) {SetConfirmExit(true);CreaManuale('F');}">Fattura
+                  manuale</a></td>
+            </tr>
+            <tr>
+              <td><a href="#" onclick="if(! confermauscita) {SetConfirmExit(true);CreaManuale('C');}">Nota di
+                  credito</a></td>
+            </tr>
+            <tr>
+              <td><a href="#" onclick="if(! confermauscita) {SetConfirmExit(true);CreaManuale('D');}">Nota di
+                  debito</a></td>
+            </tr>
+            <tr>
+              <td><a href="#" onclick="if(! confermauscita) {SelElencoDoc('F');}">Elenco fatture e
+                  N.D.</a></td>
+            </tr>
+            <tr>
+              <td><a href="#" onclick="if(! confermauscita) {SelElencoDoc('C');}">Elenco N.C.</a>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="#" onclick="if(! confermauscita) {SelElencoDoc('E');}">Fatture
+                  esterometro</a></td>
+            </tr>
+            <tr>
+              <td><a href="#" onclick="if(! confermauscita) {SelIncassi();}">Incassi</a></td>
+            </tr>
+            <tr>
+              <td><a href="#" onclick="if(! confermauscita) {SelIncassiScontrini();}">Incassi
+                  scontrini</a></td>
+            </tr>
+            <tr>
+              <td><a href="#" onclick="if(! confermauscita) {SceglieMagazzinoDefault();}">Cambia
+                  mio<br>magazzino</a></td>
+            </tr>
+            <tr>
+              <td><a href="#" onclick="InvioDocElettronici()">Invia documenti<br>elettronici</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="interna">interna</div>
+      <div class="lavoro">
+
+
+        <table class="listato">
+          <tbody>
+            <tr class="titolo">
+              <td><strong>Operazione</strong></td>
+              <td><strong>Data</strong></td>
+              <td></td>
+              <td><strong>Nota</strong></td>
+              <td align="right"><strong>Dare</strong></td>
+              <td align="right"><strong>Avere</strong></td>
+              <td align="right"><strong>Saldo</strong></td>
+            </tr>
+            <tr bgcolor="#EEEEEE" class="riga">
+              <td><a class="link"
+                  href="javascript:NamedWindow('cont_mostraope.php?nope=1360&amp;csc=21.10',800,400,'mostraope')"><b>1360</b></a>
+              </td>
+              <td>16-01-2023</td>
+              <td align="center"><a
+                  href="javascript:NamedWindow('cont_memo.php?ope=1360&amp;caus=VEND&amp;conto=21.10&amp;campo=m_1',600,300,'promemoria')"
+                  class="link">
+                  <div id="m_1">memo</div>
+                </a></td>
+              <td>CORRISPETTIVI DAL 01-01-2023 DAL 16-01-2023 Ufficio centrale</td>
+              <td align="right">50,00</td>
+              <td>&nbsp;</td>
+              <td align="right">50,00</td>
+            </tr>
+            <tr bgcolor="#FFFFFF" class="riga">
+              <td><a class="link"
+                  href="javascript:NamedWindow('cont_mostraope.php?nope=1361&amp;csc=21.10',800,400,'mostraope')"><b>1361</b></a>
+              </td>
+              <td>16-01-2023</td>
+              <td align="center"><a
+                  href="javascript:NamedWindow('cont_memo.php?ope=1361&amp;caus=VEND&amp;conto=21.10&amp;campo=m_2',600,300,'promemoria')"
+                  class="link">
+                  <div id="m_2">memo</div>
+                </a></td>
+              <td>CORRISPETTIVI DAL 01-01-2023 DAL 16-01-2023 Ufficio centrale</td>
+              <td align="right">50,00</td>
+              <td>&nbsp;</td>
+              <td align="right">100,00</td>
+            </tr>
+            <tr bgcolor="#EEEEEE" class="riga">
+              <td><a class="link"
+                  href="javascript:NamedWindow('cont_mostraope.php?nope=1368&amp;csc=21.10',800,400,'mostraope')"><b>1368</b></a>
+              </td>
+              <td>19-01-2023</td>
+              <td align="center"><a
+                  href="javascript:NamedWindow('cont_memo.php?ope=1368&amp;caus=VEND&amp;conto=21.10&amp;campo=m_3',600,300,'promemoria')"
+                  class="link">
+                  <div id="m_3">memo</div>
+                </a></td>
+              <td>Prova sezionale</td>
+              <td align="right">12,20</td>
+              <td>&nbsp;</td>
+              <td align="right">112,20</td>
+            </tr>
+            <tr bgcolor="#FFFFFF" class="riga">
+              <td><a class="link"
+                  href="javascript:NamedWindow('cont_mostraope.php?nope=1395&amp;csc=21.10',800,400,'mostraope')"><b>1395</b></a>
+              </td>
+              <td>23-05-2023</td>
+              <td align="center"><a
+                  href="javascript:NamedWindow('cont_memo.php?ope=1395&amp;caus=VEND&amp;conto=21.10&amp;campo=m_4',600,300,'promemoria')"
+                  class="link">
+                  <div id="m_4">memo</div>
+                </a></td>
+              <td>CORRISPETTIVI DAL 23-05-2023 DAL 23-05-2023 Mazzacano Punto 1</td>
+              <td align="right">40,10</td>
+              <td>&nbsp;</td>
+              <td align="right">152,30</td>
+            </tr>
+            <tr bgcolor="#EEEEEE" class="riga">
+              <td><a class="link"
+                  href="javascript:NamedWindow('cont_mostraope.php?nope=1394&amp;csc=21.10',800,400,'mostraope')"><b>1394</b></a>
+              </td>
+              <td>29-05-2023</td>
+              <td align="center"><a
+                  href="javascript:NamedWindow('cont_memo.php?ope=1394&amp;caus=VEND&amp;conto=21.10&amp;campo=m_5',600,300,'promemoria')"
+                  class="link">
+                  <div id="m_5">memo</div>
+                </a></td>
+              <td>CORRISPETTIVI DAL 01-05-2023 DAL 29-05-2023 Mazzacano Punto 1</td>
+              <td align="right">684,80</td>
+              <td>&nbsp;</td>
+              <td align="right">837,10</td>
+            </tr>
+            <tr bgcolor="#FFFFFF" class="riga">
+              <td><a class="link"
+                  href="javascript:NamedWindow('cont_mostraope.php?nope=1396&amp;csc=21.10',800,400,'mostraope')"><b>1396</b></a>
+              </td>
+              <td>31-05-2023</td>
+              <td align="center"><a
+                  href="javascript:NamedWindow('cont_memo.php?ope=1396&amp;caus=VEND&amp;conto=21.10&amp;campo=m_6',600,300,'promemoria')"
+                  class="link">
+                  <div id="m_6">memo</div>
+                </a></td>
+              <td>CORRISPETTIVI DAL 25-05-2023 DAL 25-05-2023 Mazzacano Punto 1</td>
+              <td align="right">300,57</td>
+              <td>&nbsp;</td>
+              <td align="right">1.137,67</td>
+            </tr>
+            <tr bgcolor="#EEEEEE" class="riga">
+              <td><a class="link"
+                  href="javascript:NamedWindow('cont_mostraope.php?nope=1397&amp;csc=21.10',800,400,'mostraope')"><b>1397</b></a>
+              </td>
+              <td>31-05-2023</td>
+              <td align="center"><a
+                  href="javascript:NamedWindow('cont_memo.php?ope=1397&amp;caus=VEND&amp;conto=21.10&amp;campo=m_7',600,300,'promemoria')"
+                  class="link">
+                  <div id="m_7">memo</div>
+                </a></td>
+              <td>CORRISPETTIVI DAL 25-05-2023 DAL 25-05-2023 Mazzacano Punto 1</td>
+              <td align="right">300,57</td>
+              <td>&nbsp;</td>
+              <td align="right">1.438,24</td>
+            </tr>
+            <tr class="totali">
+              <td colspan="4">Totali</td>
+              <td align="right">1.438,24</td>
+              <td align="right">0,00</td>
+              <td align="right">1.438,24</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
     </div>
 
   </main>
