@@ -69,11 +69,17 @@ li {
   list-style-type: none;
 }
 
+/*** INPUT STYLE ***/
 input {
-  padding: 12px;
+  padding: 4px;
+  border: none;
   border-radius: var(--border-radius);
   -webkit-border-radius: var(--border-radius);
-  border: 1px solid var(--primary--color--600);
+  color: var(--secondary--color--900);
+  font-style: normal;
+}
+input:focus {
+  border: none;
 }
 
 table,
@@ -549,9 +555,9 @@ SELECT {
   font-size: small;
 }
 
-INPUT {
+/* INPUT {
   font-size: small;
-}
+} */
 
 IMG {
   border-color: black;
