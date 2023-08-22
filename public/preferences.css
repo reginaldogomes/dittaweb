@@ -47,6 +47,9 @@
   --font-face: "Roboto", sans-serif;
 
   --border-radius: 0.3em;
+
+  --link: var(--secondary--color--900);
+  --link-hover: var(--secondary--color--800);
 }
 
 * {
@@ -461,17 +464,23 @@ p {
   font-size: 0.8rem;
   padding: 0 5px 0 5px;
 }
-.comando table tbody tr td:not(:first-child) {
+/* .comando table tbody tr td:not(:first-child) {
   content: "\F285";
   font-family: "bootstrap-icons";
   font-size: 0.8rem;
   padding: 0 5px 0 5px;
-}
+} */
 /* :not(:first-child) */
 .comando table tbody tr td .clickarea {
   font-size: 0.9em;
   color: var(--link);
 }
+
+/* .lavoro table tbody tr:nth-child(odd):not(first-child) {
+  background: green;
+  font-size: 24px;
+  color:white;
+} */
 
 /* .clickarea {
   color: white;
@@ -666,14 +675,17 @@ A:hover.vocemenu {
 .tasto {
   text-decoration: none;
   font-weight: bold;
-  font-size: 20px;
-  color: #3415ff;
+  font-size: 1.1rem;
+  color: #fff;
   text-align: center;
   line-height: 26px;
+  padding: 5px;
+  background: #3415ff;
+  border-radius: var(--border-radius)
 }
 
-:hover.tasto {
-  font-size: 22px;
+.tasto:hover {
+  background: #3414ff;
 }
 
 .tastov {
@@ -716,10 +728,10 @@ A:hover.vocemenu {
 }
 
 .testata {
-  background-color: #91a2ff;
+  background-color: var(--secondary--color--200);
   font-weight: bold;
-  border-spacing: 4px;
-  border: 1px solid #a0a0a0;
+  /* border-spacing: 4px; */
+  /* border: 1px solid #a0a0a0; */
   /*border-radius: 5px; -webkit-border-radius: 5px; padding:2px;*/
 }
 
@@ -747,10 +759,10 @@ A:hover.vocemenu {
 }
 
 .listato {
-  font-size: 12px;
+  /* font-size: 12px;
   padding-left: 0px;
   padding-right: 0px;
-  text-align: left;
+  text-align: left; */
   line-height: 1.8;
   width: 100%;
 }
@@ -855,46 +867,34 @@ A:hover.vocemenu {
   background-color: #bdd0ff;
   text-decoration: none;
   width: 45px;
-  font-size: 10px;
+  font-size: 0.6rem;
   font-weight: bold;
   text-align: center;
-  padding-top: 2px;
-  padding-bottom: 2px;
+  padding: 2px 3px;
   vertical-align: middle;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #aaaaaa;
-  /*float:left;*/
+  border-radius: var(--border-radius)
 }
 
 :hover.icona {
   background-color: #5c64ff;
   color: #eeeeee;
-  border-style: solid;
-  border-color: #888888;
 }
 
 .iconax {
   color: #000000;
   background-color: #ffadad;
   text-decoration: none;
-  font-size: 10px;
+  font-size: 0.6rem;
   font-weight: bold;
   text-align: center;
-  padding-top: 2px;
-  padding-bottom: 2px;
+  padding: 2px 3px;
   vertical-align: middle;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #aaaaaa;
-  /*float:left;*/
+  border-radius: var(--border-radius)
 }
 
 :hover.iconax {
   background-color: #ff0909;
   color: #eeeeee;
-  border-style: solid;
-  border-color: #888888;
 }
 
 .iconav {
@@ -902,23 +902,17 @@ A:hover.vocemenu {
   background-color: #00ff04;
   text-decoration: none;
   width: 45px;
-  font-size: 10px;
+  font-size: 0.6rem;
   font-weight: bold;
   text-align: center;
-  padding-top: 2px;
-  padding-bottom: 2px;
+  padding: 2px 3px;
   vertical-align: middle;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #aaaaaa;
-  /*float:left;*/
+  border-radius: var(--border-radius)
 }
 
 :hover.iconav {
   background-color: #06c100;
   color: #eeeeee;
-  border-style: solid;
-  border-color: #888888;
 }
 
 .piccola {
@@ -960,9 +954,13 @@ A:hover.vocemenu {
 }
 
 .chiaro {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: bold;
   text-align: center;
+  padding: 5px;
+  border-radius: var(--border-radius);
+  -webkit-border-radius: var(--border-radius);
+  -moz-border-radius: var(--border-radius);
 }
 
 .errore {
@@ -996,7 +994,7 @@ A:hover.vocemenu {
 
 /* .comando {
   background-color: #404040;
-  color: #91a2ff;
+  color: var(--secondary--color--900);
   width: 220px;
   min-width: 220px;
   border: 3px solid #a0a0a0;
@@ -1057,18 +1055,55 @@ A:hover.vocemenu {
   background-color: var(--secondary--color--200);
   font-weight: bold;
   font-size: 1rem;
-  border: 0px solid #a0a0a0;
+
   /*border-radius: 25px; -webkit-border-radius: 25px;*/
 }
 
+.listato {
+  background-color: var(--secondary--color--200);
+  border-radius: var(--border-radius);
+  -webkit-border-radius: var(--border-radius);
+  -moz-border-radius: var(--border-radius);
+  margin-bottom:5px
+}
+.listato td {
+  padding: 2px 5px;
+  font-size: 0.8rem;
+}
+
 .dettaglio {
-  background-color: #f0f0f0;
+  background-color: var(--secondary--color--200);
+  border-radius: var(--border-radius);
+  -webkit-border-radius: var(--border-radius);
+  -moz-border-radius: var(--border-radius);
+  margin-bottom:5px
+}
+.dettaglio td {
+  padding: 2px 5px;
+  font-size: 0.8rem;
+}
+
+.testata {
+  background-color: var(--secondary--color--200);
+  border-radius: var(--border-radius);
+  -webkit-border-radius: var(--border-radius);
+  -moz-border-radius: var(--border-radius);
+  margin-bottom:5px
+}
+.testata td {
+  padding: 2px 5px;
+  font-size: 0.8rem;
+}
+
+
+/* .dettaglio {
+  background-color: var(--secondary--color--200);
   line-height: 18px;
   font-weight: bold;
   border-spacing: 4px;
   font-weight: bold;
   border: 0px solid #ffffff;
-}
+} */
 
 .totali {
   background-color: #ccffb0;
@@ -1188,12 +1223,12 @@ A:hover.vocemenu {
 }
 
 .link {
-  color: NAVY;
+  color: var(--link);
   text-decoration: none;
 }
 
 :hover.link {
-  color: #ff0000;
+  color: var(--link-hover);
 }
 
 .editore {
@@ -1256,7 +1291,7 @@ A:hover.vocemenu {
 }
 
 .pannello {
-  background-color: #91a2ff;
+  background-color: var(--secondary--color--900);
   width: 100%;
   height: 200px;
   display: none;
@@ -1268,12 +1303,12 @@ A:hover.vocemenu {
 .page_slide_div {
   padding: 0px;
   width: 450px;
-  background-color: #91a2ff;
+  background-color: var(--secondary--color--900);
   border: 2px solid #29216d;
 }
 
 .riga {
-  color: #000000;
+  color: var(--secondary--color--900);
 }
 
 :hover.riga {

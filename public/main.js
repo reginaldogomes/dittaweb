@@ -11,6 +11,10 @@
 //   });
 // })();
 
+(function doSomething() { document.getElementsByTagName("tr")[0].removeAttribute("bgcolor");
+})()
+
+
 function togglePasswordVisibility() {
   const passwordInput = document.getElementById("password");
   const showPasswordCheckbox = document.getElementById("show-password");
