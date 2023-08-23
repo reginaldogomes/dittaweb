@@ -7,6 +7,8 @@
   <title>Page Title</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel='stylesheet' type='text/css' media='screen' href='preferences.css'>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="./main.js"></script>
 </head>
 
 <body>
@@ -71,8 +73,32 @@
     </ul>
   </nav>
   <main id="content">
+    <div class="login">
+      <form class="login__form">
+        <h1>Dittaweb<span>Servizio di Gestione Aziendale via Web</span></h1>
+        <div class="form__group">
+          <label for="email">Codice azienda</label>
+          <input type="text" id="azienda" name="azienda" required>
+        </div>
+        <div class="form__group">
+          <label for="email">Codice utente</label>
+          <input type="text" id="user" name="user" required>
+        </div>
+        <div class="form__group">
+          <div>
+            <label for="password">Parola chiave</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <div>
+            <input type="checkbox" id="show-password">
+            <label for="show-password"><small>Mostrar senha</small></label>
+          </div>
+        </div>
+        <a href="javascript:document.loginform.submit()" id="btn-submit">Entra</a>
+      </form>
+    </div>
 
-    <div class="contents">
+    <!-- <div class="contents">
       <div class="selezione">
         <table border="0" width="100%">
           <tbody>
@@ -307,7 +333,7 @@
         </table>
 
       </div>
-    </div>
+    </div> -->
 
   </main>
 

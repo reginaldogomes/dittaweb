@@ -326,7 +326,7 @@ p {
 }
 @media screen and (max-width: 768px) {
   .login {
-    width: 90%;
+    width: 50%;
   }
 }
 .login .login__form {
@@ -353,12 +353,28 @@ p {
   padding: 0.9em 0 0.9em;
   row-gap: 5px;
 }
+@media screen and (max-width: 768px) {
+  .login .login__form .form__group:nth-child(4) {
+    flex-direction: column;
+    /* width: 50%; */
+  }
+}
 .login .login__form .form__group:nth-child(4) div {
   flex-direction: row;
   width: 50%;
 }
+@media screen and (max-width: 768px) {
+  .login .login__form .form__group:nth-child(4) div {
+    flex-direction: row;
+  }
+}
 .login .login__form .form__group:nth-child(4) div:nth-child(1) {
   flex-basis: 200px;
+}
+@media screen and (max-width: 768px) {
+  .login .login__form .form__group:nth-child(4) div:nth-child(1) {
+    flex-basis: 10px
+  }
 }
 .login .login__form .form__group:nth-child(4) div:nth-child(2) {
   display: flex;
@@ -675,7 +691,7 @@ A:hover.vocemenu {
 .tasto {
   text-decoration: none;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #fff;
   text-align: center;
   line-height: 26px;
@@ -717,10 +733,12 @@ A:hover.vocemenu {
 .tastor {
   text-decoration: none;
   font-weight: bold;
-  font-size: 20px;
-  color: #cc0606;
+  font-size: 1rem;
+  color: #fff;
   text-align: center;
   line-height: 26px;
+  background: #cc0606;
+  border-radius: var(--border-radius)
 }
 
 :hover.tastor {
