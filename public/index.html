@@ -73,32 +73,8 @@
     </ul>
   </nav>
   <main id="content">
-    <div class="login">
-      <form class="login__form">
-        <h1>Dittaweb<span>Servizio di Gestione Aziendale via Web</span></h1>
-        <div class="form__group">
-          <label for="email">Codice azienda</label>
-          <input type="text" id="azienda" name="azienda" required>
-        </div>
-        <div class="form__group">
-          <label for="email">Codice utente</label>
-          <input type="text" id="user" name="user" required>
-        </div>
-        <div class="form__group">
-          <div>
-            <label for="password">Parola chiave</label>
-            <input type="password" id="password" name="password" required>
-          </div>
-          <div>
-            <input type="checkbox" id="show-password">
-            <label for="show-password"><small>Mostrar senha</small></label>
-          </div>
-        </div>
-        <a href="javascript:document.loginform.submit()" id="btn-submit">Entra</a>
-      </form>
-    </div>
 
-    <!-- <div class="contents">
+    <div class="contents">
       <div class="selezione">
         <table border="0" width="100%">
           <tbody>
@@ -207,7 +183,7 @@
       <div class="lavoro">
 
 
-        <table class="listato">
+        <!-- <table class="listato">
           <tbody>
             <tr class="titolo">
               <td><strong>Operazione</strong></td>
@@ -330,10 +306,1080 @@
               <td align="right">1.438,24</td>
             </tr>
           </tbody>
-        </table>
+        </table> -->
+
+        <form method="POST" action="cont_registra.php?ope=salva">
+          <table border="0" width="100%" cellpadding="3" cellspacing="0" class="testata" onclick="SetConfirmExit(true)">
+            <tbody>
+              <tr>
+                <td colspan="6" align="center" height="30" class="titolo">Nuova operazione</td>
+              </tr>
+              <tr>
+                <td width="15%"></td>
+                <td></td>
+                <td width="15%">Data operazione:</td>
+                <td><input name="data_ope" id="data_ope" type="text" size="10" maxlength="10" value="24-08-2023"></td>
+                <td>Ultima operazione il:</td>
+                <td>26-07-2023</td>
+              </tr>
+              <tr>
+                <td>Tipo documento:</td>
+                <td><select class="tipodoc" name="tipo_doc">
+                    <option selected="true" value=""> - </option>
+                    <option value="****">**** - EDITA QUESTA NUOVA RIGA !</option>
+                    <option value="AUTO">AUTO - AUTOFATTURA BENI</option>
+                    <option value="AUTS">AUTS - AUTOFATTURA SERVIZI</option>
+                    <option value="FCA">FCA - FATTURA VENDITA CEE</option>
+                    <option value="FCP">FCP - FATTURA ACQUISTO CEE</option>
+                    <option value="FTA">FTA - FATTURA VENDITA</option>
+                    <option value="FTP">FTP - FATTURA ACQUISTO</option>
+                    <option value="FTPRI">FTPRI - FATTURA REVERSE CHARGE INTERNO</option>
+                    <option value="LIA">LIA - SCHEDA CARBURANTE</option>
+                    <option value="NCA">NCA - NOTA CREDITO VENDITA</option>
+                    <option value="NCCA">NCCA - N. CREDITO CEE VENDITA</option>
+                    <option value="NCCP">NCCP - N. CREDITO CEE ACQUISTO</option>
+                    <option value="NCP">NCP - NOTA CREDITO ACQUISTO</option>
+                    <option value="NDA">NDA - NOTA DEBITO VENDITA</option>
+                    <option value="NDP">NDP - NOTA DEBITO ACQUISTO</option>
+                    <option value="NDV">NDV - NOTA DI VARIAZIONE</option>
+                    <option value="SCNT">SCNT - SCONTRINO FISCALE</option>
+                  </select></td>
+                <td>Data documento:</td>
+                <td><input name="data_doc" type="text" size="10" maxlength="10" value=""></td>
+                <td width="17%">Numero documento:</td>
+                <td><input name="numero_doc" type="text" size="10" maxlength="20" value=""></td>
+              </tr>
+              <tr>
+                <td>Nota registrazione:</td>
+                <td colspan="3"><input name="nota" id="nota" type="text" size="80" maxlength="80" value=""></td>
+                <td>Serie (sezionale) :</td>
+                <td align="left"><select class="causale" name="serie" id="SERIE"
+                    onchange="SalvaSessionVar('serie',this.value)">
+                    <option value="">Nessuno</option>
+                    <option value="ALI">ALI - Alibabba</option>
+                    <option value="AM">AM - Fatture emesse da Amazon</option>
+                    <option value="AMC">AMC - Note Credito Amazon</option>
+                    <option value="BRA">BRA - Fatture emesse dal Brasile</option>
+                    <option value="FABE">FABE - Fatture Amazon Belgio</option>
+                    <option value="FVN">FVN - SEZIONALE fULVIA</option>
+                    <option value="PAO">PAO - Sezionale Paolo</option>
+                    <option value="XYZ">XYZ - Emittente XYZ</option>
+                  </select></td>
+              </tr>
+            </tbody>
+          </table>
+          <table id="tab_dett_reg" width="100%" cellpadding="2" cellspacing="2" class="dettaglio"
+            onclick="SetConfirmExit(true)">
+            <tbody>
+              <tr class="titolo">
+                <td align="center">C.SC</td>
+                <td align="center">Descrizione</td>
+                <td align="center">Dare</td>
+                <td align="center">Avere</td>
+                <td align="center">Causale</td>
+              </tr>
+              <tr>
+                <td align="center"><input class="conto" id="conto_1" name="conto_1" type="text" size="10" maxlength="10"
+                    value="" ondblclick="NewWindow('contcontotrova.php?id_campo=conto_1',600,500)"
+                    onblur="MioTrovaConto(this.value,1)"></td>
+                <td width="50%">
+                  <div id="desc_1">&nbsp;</div>
+                </td>
+                <td align="right"><input class="soldi" id="dare_1" name="dare_1" type="text" size="12" maxlength="12"
+                    value="" onblur="Numerico(this,2);TotDareAvere();"></td>
+                <td align="right"><input class="soldi" id="avere_1" name="avere_1" type="text" size="12" maxlength="12"
+                    value="" onblur="Numerico(this,2);TotDareAvere();"></td>
+                <td align="center">
+                  <div id="causa_div_" 1="">
+                    <select class="causale" name="causa_1">
+                      <option value="">Scegli</option>
+                      <option selected="true" value=""> - </option>
+                      <option value="12345678">12345678 - </option>
+                      <option value="123456789999">123456789999 - </option>
+                      <option value="A0">A0 - ESENTE IVA ART. 124</option>
+                      <option value="A1910">A1910 - NON DETRAIBILE 10%</option>
+                      <option value="A1919">A1919 - NON DETRAIBILE 19%</option>
+                      <option value="A1920">A1920 - NON DETRAIBILE 20%</option>
+                      <option value="ACQ">ACQ - ACQUISTO</option>
+                      <option value="ART1">ART1 - NON ASSOG.AD IVA</option>
+                      <option value="ART10">ART10 - ESENTE ART.10</option>
+                      <option value="ART15">ART15 - ESCLUSO ART.15</option>
+                      <option value="ART17">ART17 - REVERSE CHARGE ART. 17</option>
+                      <option value="ART19">ART19 - NON DETRAIBILE ART19</option>
+                      <option value="ART2">ART2 - ESC. CAMPO IVA</option>
+                      <option value="ART25">ART25 - ESENTE ART.25</option>
+                      <option value="ART3">ART3 - ESENTE ART.3</option>
+                      <option value="ART41">ART41 - ESENTE ART.41</option>
+                      <option value="ART7">ART7 - ESENTE REV. CHARGE A7-ter D.p.r. 633/72</option>
+                      <option value="ART74">ART74 - ESCLUSO ART.74</option>
+                      <option value="ART8">ART8 - NON IMPONIBILE</option>
+                      <option value="ART9">ART9 - NON IMPONIBILE</option>
+                      <option value="BOLLO">BOLLO - IMP. BOLLO ESC. IVA</option>
+                      <option value="CEE16">CEE16 - IVA CEE 16%</option>
+                      <option value="CEE19">CEE19 - IVA CEE 19%</option>
+                      <option value="CEE20">CEE20 - IVA CEE 20%</option>
+                      <option value="CEE22">CEE22 - IVA CEE 22%</option>
+                      <option value="ENASARCO">ENASARCO - </option>
+                      <option value="IMB">IMB - IMBALLO</option>
+                      <option value="IMB20">IMB20 - IMBALLO IVA 20%</option>
+                      <option value="IMB22">IMB22 - IMBALLO IVA 22%</option>
+                      <option value="IMP00">IMP00 - ESENTE IVA ART. 124</option>
+                      <option value="IMP00COR">IMP00COR - </option>
+                      <option value="IMP01">IMP01 - </option>
+                      <option value="IMP02">IMP02 - </option>
+                      <option value="IMP04">IMP04 - IMPONIBILE IVA 4%</option>
+                      <option value="IMP04COR">IMP04COR - IMPONIBILE IVA 4% CORRISPETTIVI</option>
+                      <option value="IMP05">IMP05 - </option>
+                      <option value="IMP09">IMP09 - IMPONIBILE IVA 9%</option>
+                      <option value="IMP10">IMP10 - IMPONIBILE IVA 10%</option>
+                      <option value="IMP10COR">IMP10COR - IMPONIBILE IVA 10% CORRISPETTIVI</option>
+                      <option value="IMP10IND">IMP10IND - IMPONIBILE 10 IND.</option>
+                      <option value="IMP13">IMP13 - IMPONIBILE IVA 13%</option>
+                      <option value="IMP16">IMP16 - IMPONIBILE IVA 16%</option>
+                      <option value="IMP18">IMP18 - IMPONIBILE IVA 18%</option>
+                      <option value="IMP19">IMP19 - IMPONIBILE IVA 19%</option>
+                      <option value="IMP20">IMP20 - IMPONIBILE IVA 20%</option>
+                      <option value="IMP21">IMP21 - </option>
+                      <option value="IMP22">IMP22 - IMPONIBILE IVA 22%</option>
+                      <option value="IMP22CEE">IMP22CEE - IMPONIBILE IVA 22% CEE</option>
+                      <option value="IMP22COR">IMP22COR - IMPONIBILE IVA 22% CORRISPETTIVI</option>
+                      <option value="IMP22IND">IMP22IND - IMPONIBILE 22 IND.</option>
+                      <option value="IMP25">IMP25 - </option>
+                      <option value="IMP4IND">IMP4IND - IMPONIBILE 4 IND.</option>
+                      <option value="IND020I10">IND020I10 - IVA 10% INDETR. 20%</option>
+                      <option value="IND020I22">IND020I22 - IVA 22% INDETR. 20%</option>
+                      <option value="IND040I10">IND040I10 - IVA 10% INDETR. 40%</option>
+                      <option value="IND040I22">IND040I22 - IVA 22% INDETR. 40%</option>
+                      <option value="IND050I10">IND050I10 - IVA 10% INDETR. 50%</option>
+                      <option value="IND050I22">IND050I22 - IVA 22% INDETR. 50%</option>
+                      <option value="IND060I10">IND060I10 - IVA 10% INDETR. 60%</option>
+                      <option value="IND060I22">IND060I22 - IVA 22% INDETR. 60%</option>
+                      <option value="IND10">IND10 - IVA INDETR. 10%</option>
+                      <option value="IND100I10">IND100I10 - IVA 10% INDETR. 100%</option>
+                      <option value="IND100I22">IND100I22 - IVA 22% INDETR. 100%</option>
+                      <option value="IND20">IND20 - IVA INDETR. 20%</option>
+                      <option value="IND22">IND22 - IVA INDETR. 22%</option>
+                      <option value="IND4">IND4 - IVA INDETR. 4%</option>
+                      <option value="IND40">IND40 - IVA INDETR. 40%</option>
+                      <option value="IND60">IND60 - IVA INDETR. 60%</option>
+                      <option value="INSOL">INSOL - </option>
+                      <option value="IRC00">IRC00 - </option>
+                      <option value="IRC22">IRC22 - IVA REVERSE CHARGE BENI 22%</option>
+                      <option value="IRCINT22">IRCINT22 - IVA REVERSE CHARGE INTERNO 22%</option>
+                      <option value="IRS22">IRS22 - IVA REVERSE CHARGE SERVIZI 22%</option>
+                      <option value="IVA00">IVA00 - MOVIMENTO IVA</option>
+                      <option value="IVA01">IVA01 - </option>
+                      <option value="IVA02">IVA02 - </option>
+                      <option value="IVA04">IVA04 - IVA 4%</option>
+                      <option value="IVA04COR">IVA04COR - IVA 4% CORRISPETTIVI</option>
+                      <option value="IVA05">IVA05 - </option>
+                      <option value="IVA09">IVA09 - IVA 9%</option>
+                      <option value="IVA10">IVA10 - IVA 10%</option>
+                      <option value="IVA10COR">IVA10COR - IVA 10% CORRISPETTIVI</option>
+                      <option value="IVA13">IVA13 - IVA 13%</option>
+                      <option value="IVA16">IVA16 - IVA 16%</option>
+                      <option value="IVA18">IVA18 - IVA 18%</option>
+                      <option value="IVA19">IVA19 - IVA 19%</option>
+                      <option value="IVA20">IVA20 - IVA 20%</option>
+                      <option value="IVA21">IVA21 - </option>
+                      <option value="IVA22">IVA22 - IVA 22%</option>
+                      <option value="IVA22COR">IVA22COR - IVA 22% CORRISPETTIVI</option>
+                      <option value="N1">N1 - OPERAZIONI ESCLUSE EX ART. 15</option>
+                      <option value="N2">N2 - OPERAZIONI NON SOGGETTE</option>
+                      <option value="N2.1">N2.1 - NON SOGGETTE ALTRI CASI</option>
+                      <option value="N2.2">N2.2 - Fuori campo iva ex art. 13 c.5 DPR 633/7</option>
+                      <option value="N3">N3 - OPERAZIONI NON IMPONIBILI</option>
+                      <option value="N3.1">N3.1 - Esportazioni</option>
+                      <option value="N3.2">N3.2 - </option>
+                      <option value="N3.6">N3.6 - Altre operazioni che non concorrono</option>
+                      <option value="N4">N4 - ESENTE IVA ART. 124</option>
+                      <option value="N5">N5 - REGIME DEL MARGINE IVA NON ESPOSTA</option>
+                      <option value="N6">N6 - OPERAZIONI REVERSE CHARGE</option>
+                      <option value="N7">N7 - IVA ASSOLTA IN ALTRO STATO UE</option>
+                      <option value="NDE020I10">NDE020I10 - IVA 10% NON DEDUCIBILE 20%</option>
+                      <option value="NDE020I22">NDE020I22 - IVA 22% NON DEDUCIBILE 20%</option>
+                      <option value="NDE025I10">NDE025I10 - IVA 10% NON DEDUCIBILE 25%</option>
+                      <option value="NDE025I22">NDE025I22 - IVA 22% NON DEDUCIBILE 25%</option>
+                      <option value="NDE030I10">NDE030I10 - IVA 10% NON DEDUCIBILE 30%</option>
+                      <option value="NDE030I22">NDE030I22 - IVA 22% NON DEDUCIBILE 30%</option>
+                      <option value="NDE050I10">NDE050I10 - IVA 10% NON DEDUCIBILE 50%</option>
+                      <option value="NDE050I22">NDE050I22 - IVA 22% NON DEDUCIBILE 50%</option>
+                      <option value="NDE080I10">NDE080I10 - IVA 10% NON DEDUCIBILE 80%</option>
+                      <option value="NDE080I22">NDE080I22 - IVA 22% NON DEDUCIBILE 80%</option>
+                      <option value="NDE100I10">NDE100I10 - IVA 10% NON DEDUCIBILE 100%</option>
+                      <option value="NDE100I22">NDE100I22 - IVA 22% NON DEDUCIBILE 100%</option>
+                      <option value="NDED80">NDED80 - NON DEDUCIBILE 80%</option>
+                      <option value="NOIVA">NOIVA - FUORI CAMPO IVA</option>
+                      <option value="PREV">PREV - </option>
+                      <option value="RCI00">RCI00 - IVA REVERSE CHARGE 0%</option>
+                      <option value="RCI22">RCI22 - REVERSE CHARGE BENI 22%</option>
+                      <option value="RCINT22">RCINT22 - REVERSE CHARGE INTERNO 22%</option>
+                      <option value="RCS22">RCS22 - REVERSE CHARGE SERVIZI 22%</option>
+                      <option value="RIGA">RIGA - RIGA ORDINE</option>
+                      <option value="RIT">RIT - RITENUTA SUBITA</option>
+                      <option value="SBF">SBF - SALDO BUON FINE</option>
+                      <option value="SCONT">SCONT - SCONTO VENDITA</option>
+                      <option value="SCT02">SCT02 - SCONTO DEL 2 %</option>
+                      <option value="SCT03">SCT03 - SCONTO DEL 3 %</option>
+                      <option value="SCT04">SCT04 - SCONTO DEL 4%</option>
+                      <option value="SCT05">SCT05 - SCONTO DEL 5 %</option>
+                      <option value="SCT07">SCT07 - SCONTO DEL 7%</option>
+                      <option value="SCT10">SCT10 - SCONTO DEL 10%</option>
+                      <option value="SCT20">SCT20 - SCONTO DEL 20%</option>
+                      <option value="SPE00">SPE00 - </option>
+                      <option value="SPE04">SPE04 - </option>
+                      <option value="SPE10">SPE10 - </option>
+                      <option value="SPE20">SPE20 - SPESE VARIE</option>
+                      <option value="SPE22">SPE22 - SPESE VARIE</option>
+                      <option value="TRA19">TRA19 - TRASPORTO IVA 19%</option>
+                      <option value="TRA20">TRA20 - TRASPORTO IVA 20%</option>
+                      <option value="TRA22">TRA22 - TRASPORTO IVA 22%</option>
+                      <option value="TRASP">TRASP - TRASPORTO</option>
+                      <option value="VEND">VEND - VENDITA</option>
+                    </select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td align="center"><input class="conto" id="conto_2" name="conto_2" type="text" size="10" maxlength="10"
+                    value="" ondblclick="NewWindow('contcontotrova.php?id_campo=conto_2',600,500)"
+                    onblur="MioTrovaConto(this.value,2)"></td>
+                <td width="50%">
+                  <div id="desc_2">&nbsp;</div>
+                </td>
+                <td align="right"><input class="soldi" id="dare_2" name="dare_2" type="text" size="12" maxlength="12"
+                    value="" onblur="Numerico(this,2);TotDareAvere();"></td>
+                <td align="right"><input class="soldi" id="avere_2" name="avere_2" type="text" size="12" maxlength="12"
+                    value="" onblur="Numerico(this,2);TotDareAvere();"></td>
+                <td align="center">
+                  <div id="causa_div_" 2="">
+                    <select class="causale" name="causa_2">
+                      <option value="">Scegli</option>
+                      <option selected="true" value=""> - </option>
+                      <option value="12345678">12345678 - </option>
+                      <option value="123456789999">123456789999 - </option>
+                      <option value="A0">A0 - ESENTE IVA ART. 124</option>
+                      <option value="A1910">A1910 - NON DETRAIBILE 10%</option>
+                      <option value="A1919">A1919 - NON DETRAIBILE 19%</option>
+                      <option value="A1920">A1920 - NON DETRAIBILE 20%</option>
+                      <option value="ACQ">ACQ - ACQUISTO</option>
+                      <option value="ART1">ART1 - NON ASSOG.AD IVA</option>
+                      <option value="ART10">ART10 - ESENTE ART.10</option>
+                      <option value="ART15">ART15 - ESCLUSO ART.15</option>
+                      <option value="ART17">ART17 - REVERSE CHARGE ART. 17</option>
+                      <option value="ART19">ART19 - NON DETRAIBILE ART19</option>
+                      <option value="ART2">ART2 - ESC. CAMPO IVA</option>
+                      <option value="ART25">ART25 - ESENTE ART.25</option>
+                      <option value="ART3">ART3 - ESENTE ART.3</option>
+                      <option value="ART41">ART41 - ESENTE ART.41</option>
+                      <option value="ART7">ART7 - ESENTE REV. CHARGE A7-ter D.p.r. 633/72</option>
+                      <option value="ART74">ART74 - ESCLUSO ART.74</option>
+                      <option value="ART8">ART8 - NON IMPONIBILE</option>
+                      <option value="ART9">ART9 - NON IMPONIBILE</option>
+                      <option value="BOLLO">BOLLO - IMP. BOLLO ESC. IVA</option>
+                      <option value="CEE16">CEE16 - IVA CEE 16%</option>
+                      <option value="CEE19">CEE19 - IVA CEE 19%</option>
+                      <option value="CEE20">CEE20 - IVA CEE 20%</option>
+                      <option value="CEE22">CEE22 - IVA CEE 22%</option>
+                      <option value="ENASARCO">ENASARCO - </option>
+                      <option value="IMB">IMB - IMBALLO</option>
+                      <option value="IMB20">IMB20 - IMBALLO IVA 20%</option>
+                      <option value="IMB22">IMB22 - IMBALLO IVA 22%</option>
+                      <option value="IMP00">IMP00 - ESENTE IVA ART. 124</option>
+                      <option value="IMP00COR">IMP00COR - </option>
+                      <option value="IMP01">IMP01 - </option>
+                      <option value="IMP02">IMP02 - </option>
+                      <option value="IMP04">IMP04 - IMPONIBILE IVA 4%</option>
+                      <option value="IMP04COR">IMP04COR - IMPONIBILE IVA 4% CORRISPETTIVI</option>
+                      <option value="IMP05">IMP05 - </option>
+                      <option value="IMP09">IMP09 - IMPONIBILE IVA 9%</option>
+                      <option value="IMP10">IMP10 - IMPONIBILE IVA 10%</option>
+                      <option value="IMP10COR">IMP10COR - IMPONIBILE IVA 10% CORRISPETTIVI</option>
+                      <option value="IMP10IND">IMP10IND - IMPONIBILE 10 IND.</option>
+                      <option value="IMP13">IMP13 - IMPONIBILE IVA 13%</option>
+                      <option value="IMP16">IMP16 - IMPONIBILE IVA 16%</option>
+                      <option value="IMP18">IMP18 - IMPONIBILE IVA 18%</option>
+                      <option value="IMP19">IMP19 - IMPONIBILE IVA 19%</option>
+                      <option value="IMP20">IMP20 - IMPONIBILE IVA 20%</option>
+                      <option value="IMP21">IMP21 - </option>
+                      <option value="IMP22">IMP22 - IMPONIBILE IVA 22%</option>
+                      <option value="IMP22CEE">IMP22CEE - IMPONIBILE IVA 22% CEE</option>
+                      <option value="IMP22COR">IMP22COR - IMPONIBILE IVA 22% CORRISPETTIVI</option>
+                      <option value="IMP22IND">IMP22IND - IMPONIBILE 22 IND.</option>
+                      <option value="IMP25">IMP25 - </option>
+                      <option value="IMP4IND">IMP4IND - IMPONIBILE 4 IND.</option>
+                      <option value="IND020I10">IND020I10 - IVA 10% INDETR. 20%</option>
+                      <option value="IND020I22">IND020I22 - IVA 22% INDETR. 20%</option>
+                      <option value="IND040I10">IND040I10 - IVA 10% INDETR. 40%</option>
+                      <option value="IND040I22">IND040I22 - IVA 22% INDETR. 40%</option>
+                      <option value="IND050I10">IND050I10 - IVA 10% INDETR. 50%</option>
+                      <option value="IND050I22">IND050I22 - IVA 22% INDETR. 50%</option>
+                      <option value="IND060I10">IND060I10 - IVA 10% INDETR. 60%</option>
+                      <option value="IND060I22">IND060I22 - IVA 22% INDETR. 60%</option>
+                      <option value="IND10">IND10 - IVA INDETR. 10%</option>
+                      <option value="IND100I10">IND100I10 - IVA 10% INDETR. 100%</option>
+                      <option value="IND100I22">IND100I22 - IVA 22% INDETR. 100%</option>
+                      <option value="IND20">IND20 - IVA INDETR. 20%</option>
+                      <option value="IND22">IND22 - IVA INDETR. 22%</option>
+                      <option value="IND4">IND4 - IVA INDETR. 4%</option>
+                      <option value="IND40">IND40 - IVA INDETR. 40%</option>
+                      <option value="IND60">IND60 - IVA INDETR. 60%</option>
+                      <option value="INSOL">INSOL - </option>
+                      <option value="IRC00">IRC00 - </option>
+                      <option value="IRC22">IRC22 - IVA REVERSE CHARGE BENI 22%</option>
+                      <option value="IRCINT22">IRCINT22 - IVA REVERSE CHARGE INTERNO 22%</option>
+                      <option value="IRS22">IRS22 - IVA REVERSE CHARGE SERVIZI 22%</option>
+                      <option value="IVA00">IVA00 - MOVIMENTO IVA</option>
+                      <option value="IVA01">IVA01 - </option>
+                      <option value="IVA02">IVA02 - </option>
+                      <option value="IVA04">IVA04 - IVA 4%</option>
+                      <option value="IVA04COR">IVA04COR - IVA 4% CORRISPETTIVI</option>
+                      <option value="IVA05">IVA05 - </option>
+                      <option value="IVA09">IVA09 - IVA 9%</option>
+                      <option value="IVA10">IVA10 - IVA 10%</option>
+                      <option value="IVA10COR">IVA10COR - IVA 10% CORRISPETTIVI</option>
+                      <option value="IVA13">IVA13 - IVA 13%</option>
+                      <option value="IVA16">IVA16 - IVA 16%</option>
+                      <option value="IVA18">IVA18 - IVA 18%</option>
+                      <option value="IVA19">IVA19 - IVA 19%</option>
+                      <option value="IVA20">IVA20 - IVA 20%</option>
+                      <option value="IVA21">IVA21 - </option>
+                      <option value="IVA22">IVA22 - IVA 22%</option>
+                      <option value="IVA22COR">IVA22COR - IVA 22% CORRISPETTIVI</option>
+                      <option value="N1">N1 - OPERAZIONI ESCLUSE EX ART. 15</option>
+                      <option value="N2">N2 - OPERAZIONI NON SOGGETTE</option>
+                      <option value="N2.1">N2.1 - NON SOGGETTE ALTRI CASI</option>
+                      <option value="N2.2">N2.2 - Fuori campo iva ex art. 13 c.5 DPR 633/7</option>
+                      <option value="N3">N3 - OPERAZIONI NON IMPONIBILI</option>
+                      <option value="N3.1">N3.1 - Esportazioni</option>
+                      <option value="N3.2">N3.2 - </option>
+                      <option value="N3.6">N3.6 - Altre operazioni che non concorrono</option>
+                      <option value="N4">N4 - ESENTE IVA ART. 124</option>
+                      <option value="N5">N5 - REGIME DEL MARGINE IVA NON ESPOSTA</option>
+                      <option value="N6">N6 - OPERAZIONI REVERSE CHARGE</option>
+                      <option value="N7">N7 - IVA ASSOLTA IN ALTRO STATO UE</option>
+                      <option value="NDE020I10">NDE020I10 - IVA 10% NON DEDUCIBILE 20%</option>
+                      <option value="NDE020I22">NDE020I22 - IVA 22% NON DEDUCIBILE 20%</option>
+                      <option value="NDE025I10">NDE025I10 - IVA 10% NON DEDUCIBILE 25%</option>
+                      <option value="NDE025I22">NDE025I22 - IVA 22% NON DEDUCIBILE 25%</option>
+                      <option value="NDE030I10">NDE030I10 - IVA 10% NON DEDUCIBILE 30%</option>
+                      <option value="NDE030I22">NDE030I22 - IVA 22% NON DEDUCIBILE 30%</option>
+                      <option value="NDE050I10">NDE050I10 - IVA 10% NON DEDUCIBILE 50%</option>
+                      <option value="NDE050I22">NDE050I22 - IVA 22% NON DEDUCIBILE 50%</option>
+                      <option value="NDE080I10">NDE080I10 - IVA 10% NON DEDUCIBILE 80%</option>
+                      <option value="NDE080I22">NDE080I22 - IVA 22% NON DEDUCIBILE 80%</option>
+                      <option value="NDE100I10">NDE100I10 - IVA 10% NON DEDUCIBILE 100%</option>
+                      <option value="NDE100I22">NDE100I22 - IVA 22% NON DEDUCIBILE 100%</option>
+                      <option value="NDED80">NDED80 - NON DEDUCIBILE 80%</option>
+                      <option value="NOIVA">NOIVA - FUORI CAMPO IVA</option>
+                      <option value="PREV">PREV - </option>
+                      <option value="RCI00">RCI00 - IVA REVERSE CHARGE 0%</option>
+                      <option value="RCI22">RCI22 - REVERSE CHARGE BENI 22%</option>
+                      <option value="RCINT22">RCINT22 - REVERSE CHARGE INTERNO 22%</option>
+                      <option value="RCS22">RCS22 - REVERSE CHARGE SERVIZI 22%</option>
+                      <option value="RIGA">RIGA - RIGA ORDINE</option>
+                      <option value="RIT">RIT - RITENUTA SUBITA</option>
+                      <option value="SBF">SBF - SALDO BUON FINE</option>
+                      <option value="SCONT">SCONT - SCONTO VENDITA</option>
+                      <option value="SCT02">SCT02 - SCONTO DEL 2 %</option>
+                      <option value="SCT03">SCT03 - SCONTO DEL 3 %</option>
+                      <option value="SCT04">SCT04 - SCONTO DEL 4%</option>
+                      <option value="SCT05">SCT05 - SCONTO DEL 5 %</option>
+                      <option value="SCT07">SCT07 - SCONTO DEL 7%</option>
+                      <option value="SCT10">SCT10 - SCONTO DEL 10%</option>
+                      <option value="SCT20">SCT20 - SCONTO DEL 20%</option>
+                      <option value="SPE00">SPE00 - </option>
+                      <option value="SPE04">SPE04 - </option>
+                      <option value="SPE10">SPE10 - </option>
+                      <option value="SPE20">SPE20 - SPESE VARIE</option>
+                      <option value="SPE22">SPE22 - SPESE VARIE</option>
+                      <option value="TRA19">TRA19 - TRASPORTO IVA 19%</option>
+                      <option value="TRA20">TRA20 - TRASPORTO IVA 20%</option>
+                      <option value="TRA22">TRA22 - TRASPORTO IVA 22%</option>
+                      <option value="TRASP">TRASP - TRASPORTO</option>
+                      <option value="VEND">VEND - VENDITA</option>
+                    </select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td align="center"><input class="conto" id="conto_3" name="conto_3" type="text" size="10" maxlength="10"
+                    value="" ondblclick="NewWindow('contcontotrova.php?id_campo=conto_3',600,500)"
+                    onblur="MioTrovaConto(this.value,3)"></td>
+                <td width="50%">
+                  <div id="desc_3">&nbsp;</div>
+                </td>
+                <td align="right"><input class="soldi" id="dare_3" name="dare_3" type="text" size="12" maxlength="12"
+                    value="" onblur="Numerico(this,2);TotDareAvere();"></td>
+                <td align="right"><input class="soldi" id="avere_3" name="avere_3" type="text" size="12" maxlength="12"
+                    value="" onblur="Numerico(this,2);TotDareAvere();"></td>
+                <td align="center">
+                  <div id="causa_div_" 3="">
+                    <select class="causale" name="causa_3">
+                      <option value="">Scegli</option>
+                      <option selected="true" value=""> - </option>
+                      <option value="12345678">12345678 - </option>
+                      <option value="123456789999">123456789999 - </option>
+                      <option value="A0">A0 - ESENTE IVA ART. 124</option>
+                      <option value="A1910">A1910 - NON DETRAIBILE 10%</option>
+                      <option value="A1919">A1919 - NON DETRAIBILE 19%</option>
+                      <option value="A1920">A1920 - NON DETRAIBILE 20%</option>
+                      <option value="ACQ">ACQ - ACQUISTO</option>
+                      <option value="ART1">ART1 - NON ASSOG.AD IVA</option>
+                      <option value="ART10">ART10 - ESENTE ART.10</option>
+                      <option value="ART15">ART15 - ESCLUSO ART.15</option>
+                      <option value="ART17">ART17 - REVERSE CHARGE ART. 17</option>
+                      <option value="ART19">ART19 - NON DETRAIBILE ART19</option>
+                      <option value="ART2">ART2 - ESC. CAMPO IVA</option>
+                      <option value="ART25">ART25 - ESENTE ART.25</option>
+                      <option value="ART3">ART3 - ESENTE ART.3</option>
+                      <option value="ART41">ART41 - ESENTE ART.41</option>
+                      <option value="ART7">ART7 - ESENTE REV. CHARGE A7-ter D.p.r. 633/72</option>
+                      <option value="ART74">ART74 - ESCLUSO ART.74</option>
+                      <option value="ART8">ART8 - NON IMPONIBILE</option>
+                      <option value="ART9">ART9 - NON IMPONIBILE</option>
+                      <option value="BOLLO">BOLLO - IMP. BOLLO ESC. IVA</option>
+                      <option value="CEE16">CEE16 - IVA CEE 16%</option>
+                      <option value="CEE19">CEE19 - IVA CEE 19%</option>
+                      <option value="CEE20">CEE20 - IVA CEE 20%</option>
+                      <option value="CEE22">CEE22 - IVA CEE 22%</option>
+                      <option value="ENASARCO">ENASARCO - </option>
+                      <option value="IMB">IMB - IMBALLO</option>
+                      <option value="IMB20">IMB20 - IMBALLO IVA 20%</option>
+                      <option value="IMB22">IMB22 - IMBALLO IVA 22%</option>
+                      <option value="IMP00">IMP00 - ESENTE IVA ART. 124</option>
+                      <option value="IMP00COR">IMP00COR - </option>
+                      <option value="IMP01">IMP01 - </option>
+                      <option value="IMP02">IMP02 - </option>
+                      <option value="IMP04">IMP04 - IMPONIBILE IVA 4%</option>
+                      <option value="IMP04COR">IMP04COR - IMPONIBILE IVA 4% CORRISPETTIVI</option>
+                      <option value="IMP05">IMP05 - </option>
+                      <option value="IMP09">IMP09 - IMPONIBILE IVA 9%</option>
+                      <option value="IMP10">IMP10 - IMPONIBILE IVA 10%</option>
+                      <option value="IMP10COR">IMP10COR - IMPONIBILE IVA 10% CORRISPETTIVI</option>
+                      <option value="IMP10IND">IMP10IND - IMPONIBILE 10 IND.</option>
+                      <option value="IMP13">IMP13 - IMPONIBILE IVA 13%</option>
+                      <option value="IMP16">IMP16 - IMPONIBILE IVA 16%</option>
+                      <option value="IMP18">IMP18 - IMPONIBILE IVA 18%</option>
+                      <option value="IMP19">IMP19 - IMPONIBILE IVA 19%</option>
+                      <option value="IMP20">IMP20 - IMPONIBILE IVA 20%</option>
+                      <option value="IMP21">IMP21 - </option>
+                      <option value="IMP22">IMP22 - IMPONIBILE IVA 22%</option>
+                      <option value="IMP22CEE">IMP22CEE - IMPONIBILE IVA 22% CEE</option>
+                      <option value="IMP22COR">IMP22COR - IMPONIBILE IVA 22% CORRISPETTIVI</option>
+                      <option value="IMP22IND">IMP22IND - IMPONIBILE 22 IND.</option>
+                      <option value="IMP25">IMP25 - </option>
+                      <option value="IMP4IND">IMP4IND - IMPONIBILE 4 IND.</option>
+                      <option value="IND020I10">IND020I10 - IVA 10% INDETR. 20%</option>
+                      <option value="IND020I22">IND020I22 - IVA 22% INDETR. 20%</option>
+                      <option value="IND040I10">IND040I10 - IVA 10% INDETR. 40%</option>
+                      <option value="IND040I22">IND040I22 - IVA 22% INDETR. 40%</option>
+                      <option value="IND050I10">IND050I10 - IVA 10% INDETR. 50%</option>
+                      <option value="IND050I22">IND050I22 - IVA 22% INDETR. 50%</option>
+                      <option value="IND060I10">IND060I10 - IVA 10% INDETR. 60%</option>
+                      <option value="IND060I22">IND060I22 - IVA 22% INDETR. 60%</option>
+                      <option value="IND10">IND10 - IVA INDETR. 10%</option>
+                      <option value="IND100I10">IND100I10 - IVA 10% INDETR. 100%</option>
+                      <option value="IND100I22">IND100I22 - IVA 22% INDETR. 100%</option>
+                      <option value="IND20">IND20 - IVA INDETR. 20%</option>
+                      <option value="IND22">IND22 - IVA INDETR. 22%</option>
+                      <option value="IND4">IND4 - IVA INDETR. 4%</option>
+                      <option value="IND40">IND40 - IVA INDETR. 40%</option>
+                      <option value="IND60">IND60 - IVA INDETR. 60%</option>
+                      <option value="INSOL">INSOL - </option>
+                      <option value="IRC00">IRC00 - </option>
+                      <option value="IRC22">IRC22 - IVA REVERSE CHARGE BENI 22%</option>
+                      <option value="IRCINT22">IRCINT22 - IVA REVERSE CHARGE INTERNO 22%</option>
+                      <option value="IRS22">IRS22 - IVA REVERSE CHARGE SERVIZI 22%</option>
+                      <option value="IVA00">IVA00 - MOVIMENTO IVA</option>
+                      <option value="IVA01">IVA01 - </option>
+                      <option value="IVA02">IVA02 - </option>
+                      <option value="IVA04">IVA04 - IVA 4%</option>
+                      <option value="IVA04COR">IVA04COR - IVA 4% CORRISPETTIVI</option>
+                      <option value="IVA05">IVA05 - </option>
+                      <option value="IVA09">IVA09 - IVA 9%</option>
+                      <option value="IVA10">IVA10 - IVA 10%</option>
+                      <option value="IVA10COR">IVA10COR - IVA 10% CORRISPETTIVI</option>
+                      <option value="IVA13">IVA13 - IVA 13%</option>
+                      <option value="IVA16">IVA16 - IVA 16%</option>
+                      <option value="IVA18">IVA18 - IVA 18%</option>
+                      <option value="IVA19">IVA19 - IVA 19%</option>
+                      <option value="IVA20">IVA20 - IVA 20%</option>
+                      <option value="IVA21">IVA21 - </option>
+                      <option value="IVA22">IVA22 - IVA 22%</option>
+                      <option value="IVA22COR">IVA22COR - IVA 22% CORRISPETTIVI</option>
+                      <option value="N1">N1 - OPERAZIONI ESCLUSE EX ART. 15</option>
+                      <option value="N2">N2 - OPERAZIONI NON SOGGETTE</option>
+                      <option value="N2.1">N2.1 - NON SOGGETTE ALTRI CASI</option>
+                      <option value="N2.2">N2.2 - Fuori campo iva ex art. 13 c.5 DPR 633/7</option>
+                      <option value="N3">N3 - OPERAZIONI NON IMPONIBILI</option>
+                      <option value="N3.1">N3.1 - Esportazioni</option>
+                      <option value="N3.2">N3.2 - </option>
+                      <option value="N3.6">N3.6 - Altre operazioni che non concorrono</option>
+                      <option value="N4">N4 - ESENTE IVA ART. 124</option>
+                      <option value="N5">N5 - REGIME DEL MARGINE IVA NON ESPOSTA</option>
+                      <option value="N6">N6 - OPERAZIONI REVERSE CHARGE</option>
+                      <option value="N7">N7 - IVA ASSOLTA IN ALTRO STATO UE</option>
+                      <option value="NDE020I10">NDE020I10 - IVA 10% NON DEDUCIBILE 20%</option>
+                      <option value="NDE020I22">NDE020I22 - IVA 22% NON DEDUCIBILE 20%</option>
+                      <option value="NDE025I10">NDE025I10 - IVA 10% NON DEDUCIBILE 25%</option>
+                      <option value="NDE025I22">NDE025I22 - IVA 22% NON DEDUCIBILE 25%</option>
+                      <option value="NDE030I10">NDE030I10 - IVA 10% NON DEDUCIBILE 30%</option>
+                      <option value="NDE030I22">NDE030I22 - IVA 22% NON DEDUCIBILE 30%</option>
+                      <option value="NDE050I10">NDE050I10 - IVA 10% NON DEDUCIBILE 50%</option>
+                      <option value="NDE050I22">NDE050I22 - IVA 22% NON DEDUCIBILE 50%</option>
+                      <option value="NDE080I10">NDE080I10 - IVA 10% NON DEDUCIBILE 80%</option>
+                      <option value="NDE080I22">NDE080I22 - IVA 22% NON DEDUCIBILE 80%</option>
+                      <option value="NDE100I10">NDE100I10 - IVA 10% NON DEDUCIBILE 100%</option>
+                      <option value="NDE100I22">NDE100I22 - IVA 22% NON DEDUCIBILE 100%</option>
+                      <option value="NDED80">NDED80 - NON DEDUCIBILE 80%</option>
+                      <option value="NOIVA">NOIVA - FUORI CAMPO IVA</option>
+                      <option value="PREV">PREV - </option>
+                      <option value="RCI00">RCI00 - IVA REVERSE CHARGE 0%</option>
+                      <option value="RCI22">RCI22 - REVERSE CHARGE BENI 22%</option>
+                      <option value="RCINT22">RCINT22 - REVERSE CHARGE INTERNO 22%</option>
+                      <option value="RCS22">RCS22 - REVERSE CHARGE SERVIZI 22%</option>
+                      <option value="RIGA">RIGA - RIGA ORDINE</option>
+                      <option value="RIT">RIT - RITENUTA SUBITA</option>
+                      <option value="SBF">SBF - SALDO BUON FINE</option>
+                      <option value="SCONT">SCONT - SCONTO VENDITA</option>
+                      <option value="SCT02">SCT02 - SCONTO DEL 2 %</option>
+                      <option value="SCT03">SCT03 - SCONTO DEL 3 %</option>
+                      <option value="SCT04">SCT04 - SCONTO DEL 4%</option>
+                      <option value="SCT05">SCT05 - SCONTO DEL 5 %</option>
+                      <option value="SCT07">SCT07 - SCONTO DEL 7%</option>
+                      <option value="SCT10">SCT10 - SCONTO DEL 10%</option>
+                      <option value="SCT20">SCT20 - SCONTO DEL 20%</option>
+                      <option value="SPE00">SPE00 - </option>
+                      <option value="SPE04">SPE04 - </option>
+                      <option value="SPE10">SPE10 - </option>
+                      <option value="SPE20">SPE20 - SPESE VARIE</option>
+                      <option value="SPE22">SPE22 - SPESE VARIE</option>
+                      <option value="TRA19">TRA19 - TRASPORTO IVA 19%</option>
+                      <option value="TRA20">TRA20 - TRASPORTO IVA 20%</option>
+                      <option value="TRA22">TRA22 - TRASPORTO IVA 22%</option>
+                      <option value="TRASP">TRASP - TRASPORTO</option>
+                      <option value="VEND">VEND - VENDITA</option>
+                    </select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td align="center"><input class="conto" id="conto_4" name="conto_4" type="text" size="10" maxlength="10"
+                    value="" ondblclick="NewWindow('contcontotrova.php?id_campo=conto_4',600,500)"
+                    onblur="MioTrovaConto(this.value,4)"></td>
+                <td width="50%">
+                  <div id="desc_4">&nbsp;</div>
+                </td>
+                <td align="right"><input class="soldi" id="dare_4" name="dare_4" type="text" size="12" maxlength="12"
+                    value="" onblur="Numerico(this,2);TotDareAvere();"></td>
+                <td align="right"><input class="soldi" id="avere_4" name="avere_4" type="text" size="12" maxlength="12"
+                    value="" onblur="Numerico(this,2);TotDareAvere();"></td>
+                <td align="center">
+                  <div id="causa_div_" 4="">
+                    <select class="causale" name="causa_4">
+                      <option value="">Scegli</option>
+                      <option selected="true" value=""> - </option>
+                      <option value="12345678">12345678 - </option>
+                      <option value="123456789999">123456789999 - </option>
+                      <option value="A0">A0 - ESENTE IVA ART. 124</option>
+                      <option value="A1910">A1910 - NON DETRAIBILE 10%</option>
+                      <option value="A1919">A1919 - NON DETRAIBILE 19%</option>
+                      <option value="A1920">A1920 - NON DETRAIBILE 20%</option>
+                      <option value="ACQ">ACQ - ACQUISTO</option>
+                      <option value="ART1">ART1 - NON ASSOG.AD IVA</option>
+                      <option value="ART10">ART10 - ESENTE ART.10</option>
+                      <option value="ART15">ART15 - ESCLUSO ART.15</option>
+                      <option value="ART17">ART17 - REVERSE CHARGE ART. 17</option>
+                      <option value="ART19">ART19 - NON DETRAIBILE ART19</option>
+                      <option value="ART2">ART2 - ESC. CAMPO IVA</option>
+                      <option value="ART25">ART25 - ESENTE ART.25</option>
+                      <option value="ART3">ART3 - ESENTE ART.3</option>
+                      <option value="ART41">ART41 - ESENTE ART.41</option>
+                      <option value="ART7">ART7 - ESENTE REV. CHARGE A7-ter D.p.r. 633/72</option>
+                      <option value="ART74">ART74 - ESCLUSO ART.74</option>
+                      <option value="ART8">ART8 - NON IMPONIBILE</option>
+                      <option value="ART9">ART9 - NON IMPONIBILE</option>
+                      <option value="BOLLO">BOLLO - IMP. BOLLO ESC. IVA</option>
+                      <option value="CEE16">CEE16 - IVA CEE 16%</option>
+                      <option value="CEE19">CEE19 - IVA CEE 19%</option>
+                      <option value="CEE20">CEE20 - IVA CEE 20%</option>
+                      <option value="CEE22">CEE22 - IVA CEE 22%</option>
+                      <option value="ENASARCO">ENASARCO - </option>
+                      <option value="IMB">IMB - IMBALLO</option>
+                      <option value="IMB20">IMB20 - IMBALLO IVA 20%</option>
+                      <option value="IMB22">IMB22 - IMBALLO IVA 22%</option>
+                      <option value="IMP00">IMP00 - ESENTE IVA ART. 124</option>
+                      <option value="IMP00COR">IMP00COR - </option>
+                      <option value="IMP01">IMP01 - </option>
+                      <option value="IMP02">IMP02 - </option>
+                      <option value="IMP04">IMP04 - IMPONIBILE IVA 4%</option>
+                      <option value="IMP04COR">IMP04COR - IMPONIBILE IVA 4% CORRISPETTIVI</option>
+                      <option value="IMP05">IMP05 - </option>
+                      <option value="IMP09">IMP09 - IMPONIBILE IVA 9%</option>
+                      <option value="IMP10">IMP10 - IMPONIBILE IVA 10%</option>
+                      <option value="IMP10COR">IMP10COR - IMPONIBILE IVA 10% CORRISPETTIVI</option>
+                      <option value="IMP10IND">IMP10IND - IMPONIBILE 10 IND.</option>
+                      <option value="IMP13">IMP13 - IMPONIBILE IVA 13%</option>
+                      <option value="IMP16">IMP16 - IMPONIBILE IVA 16%</option>
+                      <option value="IMP18">IMP18 - IMPONIBILE IVA 18%</option>
+                      <option value="IMP19">IMP19 - IMPONIBILE IVA 19%</option>
+                      <option value="IMP20">IMP20 - IMPONIBILE IVA 20%</option>
+                      <option value="IMP21">IMP21 - </option>
+                      <option value="IMP22">IMP22 - IMPONIBILE IVA 22%</option>
+                      <option value="IMP22CEE">IMP22CEE - IMPONIBILE IVA 22% CEE</option>
+                      <option value="IMP22COR">IMP22COR - IMPONIBILE IVA 22% CORRISPETTIVI</option>
+                      <option value="IMP22IND">IMP22IND - IMPONIBILE 22 IND.</option>
+                      <option value="IMP25">IMP25 - </option>
+                      <option value="IMP4IND">IMP4IND - IMPONIBILE 4 IND.</option>
+                      <option value="IND020I10">IND020I10 - IVA 10% INDETR. 20%</option>
+                      <option value="IND020I22">IND020I22 - IVA 22% INDETR. 20%</option>
+                      <option value="IND040I10">IND040I10 - IVA 10% INDETR. 40%</option>
+                      <option value="IND040I22">IND040I22 - IVA 22% INDETR. 40%</option>
+                      <option value="IND050I10">IND050I10 - IVA 10% INDETR. 50%</option>
+                      <option value="IND050I22">IND050I22 - IVA 22% INDETR. 50%</option>
+                      <option value="IND060I10">IND060I10 - IVA 10% INDETR. 60%</option>
+                      <option value="IND060I22">IND060I22 - IVA 22% INDETR. 60%</option>
+                      <option value="IND10">IND10 - IVA INDETR. 10%</option>
+                      <option value="IND100I10">IND100I10 - IVA 10% INDETR. 100%</option>
+                      <option value="IND100I22">IND100I22 - IVA 22% INDETR. 100%</option>
+                      <option value="IND20">IND20 - IVA INDETR. 20%</option>
+                      <option value="IND22">IND22 - IVA INDETR. 22%</option>
+                      <option value="IND4">IND4 - IVA INDETR. 4%</option>
+                      <option value="IND40">IND40 - IVA INDETR. 40%</option>
+                      <option value="IND60">IND60 - IVA INDETR. 60%</option>
+                      <option value="INSOL">INSOL - </option>
+                      <option value="IRC00">IRC00 - </option>
+                      <option value="IRC22">IRC22 - IVA REVERSE CHARGE BENI 22%</option>
+                      <option value="IRCINT22">IRCINT22 - IVA REVERSE CHARGE INTERNO 22%</option>
+                      <option value="IRS22">IRS22 - IVA REVERSE CHARGE SERVIZI 22%</option>
+                      <option value="IVA00">IVA00 - MOVIMENTO IVA</option>
+                      <option value="IVA01">IVA01 - </option>
+                      <option value="IVA02">IVA02 - </option>
+                      <option value="IVA04">IVA04 - IVA 4%</option>
+                      <option value="IVA04COR">IVA04COR - IVA 4% CORRISPETTIVI</option>
+                      <option value="IVA05">IVA05 - </option>
+                      <option value="IVA09">IVA09 - IVA 9%</option>
+                      <option value="IVA10">IVA10 - IVA 10%</option>
+                      <option value="IVA10COR">IVA10COR - IVA 10% CORRISPETTIVI</option>
+                      <option value="IVA13">IVA13 - IVA 13%</option>
+                      <option value="IVA16">IVA16 - IVA 16%</option>
+                      <option value="IVA18">IVA18 - IVA 18%</option>
+                      <option value="IVA19">IVA19 - IVA 19%</option>
+                      <option value="IVA20">IVA20 - IVA 20%</option>
+                      <option value="IVA21">IVA21 - </option>
+                      <option value="IVA22">IVA22 - IVA 22%</option>
+                      <option value="IVA22COR">IVA22COR - IVA 22% CORRISPETTIVI</option>
+                      <option value="N1">N1 - OPERAZIONI ESCLUSE EX ART. 15</option>
+                      <option value="N2">N2 - OPERAZIONI NON SOGGETTE</option>
+                      <option value="N2.1">N2.1 - NON SOGGETTE ALTRI CASI</option>
+                      <option value="N2.2">N2.2 - Fuori campo iva ex art. 13 c.5 DPR 633/7</option>
+                      <option value="N3">N3 - OPERAZIONI NON IMPONIBILI</option>
+                      <option value="N3.1">N3.1 - Esportazioni</option>
+                      <option value="N3.2">N3.2 - </option>
+                      <option value="N3.6">N3.6 - Altre operazioni che non concorrono</option>
+                      <option value="N4">N4 - ESENTE IVA ART. 124</option>
+                      <option value="N5">N5 - REGIME DEL MARGINE IVA NON ESPOSTA</option>
+                      <option value="N6">N6 - OPERAZIONI REVERSE CHARGE</option>
+                      <option value="N7">N7 - IVA ASSOLTA IN ALTRO STATO UE</option>
+                      <option value="NDE020I10">NDE020I10 - IVA 10% NON DEDUCIBILE 20%</option>
+                      <option value="NDE020I22">NDE020I22 - IVA 22% NON DEDUCIBILE 20%</option>
+                      <option value="NDE025I10">NDE025I10 - IVA 10% NON DEDUCIBILE 25%</option>
+                      <option value="NDE025I22">NDE025I22 - IVA 22% NON DEDUCIBILE 25%</option>
+                      <option value="NDE030I10">NDE030I10 - IVA 10% NON DEDUCIBILE 30%</option>
+                      <option value="NDE030I22">NDE030I22 - IVA 22% NON DEDUCIBILE 30%</option>
+                      <option value="NDE050I10">NDE050I10 - IVA 10% NON DEDUCIBILE 50%</option>
+                      <option value="NDE050I22">NDE050I22 - IVA 22% NON DEDUCIBILE 50%</option>
+                      <option value="NDE080I10">NDE080I10 - IVA 10% NON DEDUCIBILE 80%</option>
+                      <option value="NDE080I22">NDE080I22 - IVA 22% NON DEDUCIBILE 80%</option>
+                      <option value="NDE100I10">NDE100I10 - IVA 10% NON DEDUCIBILE 100%</option>
+                      <option value="NDE100I22">NDE100I22 - IVA 22% NON DEDUCIBILE 100%</option>
+                      <option value="NDED80">NDED80 - NON DEDUCIBILE 80%</option>
+                      <option value="NOIVA">NOIVA - FUORI CAMPO IVA</option>
+                      <option value="PREV">PREV - </option>
+                      <option value="RCI00">RCI00 - IVA REVERSE CHARGE 0%</option>
+                      <option value="RCI22">RCI22 - REVERSE CHARGE BENI 22%</option>
+                      <option value="RCINT22">RCINT22 - REVERSE CHARGE INTERNO 22%</option>
+                      <option value="RCS22">RCS22 - REVERSE CHARGE SERVIZI 22%</option>
+                      <option value="RIGA">RIGA - RIGA ORDINE</option>
+                      <option value="RIT">RIT - RITENUTA SUBITA</option>
+                      <option value="SBF">SBF - SALDO BUON FINE</option>
+                      <option value="SCONT">SCONT - SCONTO VENDITA</option>
+                      <option value="SCT02">SCT02 - SCONTO DEL 2 %</option>
+                      <option value="SCT03">SCT03 - SCONTO DEL 3 %</option>
+                      <option value="SCT04">SCT04 - SCONTO DEL 4%</option>
+                      <option value="SCT05">SCT05 - SCONTO DEL 5 %</option>
+                      <option value="SCT07">SCT07 - SCONTO DEL 7%</option>
+                      <option value="SCT10">SCT10 - SCONTO DEL 10%</option>
+                      <option value="SCT20">SCT20 - SCONTO DEL 20%</option>
+                      <option value="SPE00">SPE00 - </option>
+                      <option value="SPE04">SPE04 - </option>
+                      <option value="SPE10">SPE10 - </option>
+                      <option value="SPE20">SPE20 - SPESE VARIE</option>
+                      <option value="SPE22">SPE22 - SPESE VARIE</option>
+                      <option value="TRA19">TRA19 - TRASPORTO IVA 19%</option>
+                      <option value="TRA20">TRA20 - TRASPORTO IVA 20%</option>
+                      <option value="TRA22">TRA22 - TRASPORTO IVA 22%</option>
+                      <option value="TRASP">TRASP - TRASPORTO</option>
+                      <option value="VEND">VEND - VENDITA</option>
+                    </select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td align="center"><input class="conto" id="conto_5" name="conto_5" type="text" size="10" maxlength="10"
+                    value="" ondblclick="NewWindow('contcontotrova.php?id_campo=conto_5',600,500)"
+                    onblur="MioTrovaConto(this.value,5)"></td>
+                <td width="50%">
+                  <div id="desc_5">&nbsp;</div>
+                </td>
+                <td align="right"><input class="soldi" id="dare_5" name="dare_5" type="text" size="12" maxlength="12"
+                    value="" onblur="Numerico(this,2);TotDareAvere();"></td>
+                <td align="right"><input class="soldi" id="avere_5" name="avere_5" type="text" size="12" maxlength="12"
+                    value="" onblur="Numerico(this,2);TotDareAvere();"></td>
+                <td align="center">
+                  <div id="causa_div_" 5="">
+                    <select class="causale" name="causa_5">
+                      <option value="">Scegli</option>
+                      <option selected="true" value=""> - </option>
+                      <option value="12345678">12345678 - </option>
+                      <option value="123456789999">123456789999 - </option>
+                      <option value="A0">A0 - ESENTE IVA ART. 124</option>
+                      <option value="A1910">A1910 - NON DETRAIBILE 10%</option>
+                      <option value="A1919">A1919 - NON DETRAIBILE 19%</option>
+                      <option value="A1920">A1920 - NON DETRAIBILE 20%</option>
+                      <option value="ACQ">ACQ - ACQUISTO</option>
+                      <option value="ART1">ART1 - NON ASSOG.AD IVA</option>
+                      <option value="ART10">ART10 - ESENTE ART.10</option>
+                      <option value="ART15">ART15 - ESCLUSO ART.15</option>
+                      <option value="ART17">ART17 - REVERSE CHARGE ART. 17</option>
+                      <option value="ART19">ART19 - NON DETRAIBILE ART19</option>
+                      <option value="ART2">ART2 - ESC. CAMPO IVA</option>
+                      <option value="ART25">ART25 - ESENTE ART.25</option>
+                      <option value="ART3">ART3 - ESENTE ART.3</option>
+                      <option value="ART41">ART41 - ESENTE ART.41</option>
+                      <option value="ART7">ART7 - ESENTE REV. CHARGE A7-ter D.p.r. 633/72</option>
+                      <option value="ART74">ART74 - ESCLUSO ART.74</option>
+                      <option value="ART8">ART8 - NON IMPONIBILE</option>
+                      <option value="ART9">ART9 - NON IMPONIBILE</option>
+                      <option value="BOLLO">BOLLO - IMP. BOLLO ESC. IVA</option>
+                      <option value="CEE16">CEE16 - IVA CEE 16%</option>
+                      <option value="CEE19">CEE19 - IVA CEE 19%</option>
+                      <option value="CEE20">CEE20 - IVA CEE 20%</option>
+                      <option value="CEE22">CEE22 - IVA CEE 22%</option>
+                      <option value="ENASARCO">ENASARCO - </option>
+                      <option value="IMB">IMB - IMBALLO</option>
+                      <option value="IMB20">IMB20 - IMBALLO IVA 20%</option>
+                      <option value="IMB22">IMB22 - IMBALLO IVA 22%</option>
+                      <option value="IMP00">IMP00 - ESENTE IVA ART. 124</option>
+                      <option value="IMP00COR">IMP00COR - </option>
+                      <option value="IMP01">IMP01 - </option>
+                      <option value="IMP02">IMP02 - </option>
+                      <option value="IMP04">IMP04 - IMPONIBILE IVA 4%</option>
+                      <option value="IMP04COR">IMP04COR - IMPONIBILE IVA 4% CORRISPETTIVI</option>
+                      <option value="IMP05">IMP05 - </option>
+                      <option value="IMP09">IMP09 - IMPONIBILE IVA 9%</option>
+                      <option value="IMP10">IMP10 - IMPONIBILE IVA 10%</option>
+                      <option value="IMP10COR">IMP10COR - IMPONIBILE IVA 10% CORRISPETTIVI</option>
+                      <option value="IMP10IND">IMP10IND - IMPONIBILE 10 IND.</option>
+                      <option value="IMP13">IMP13 - IMPONIBILE IVA 13%</option>
+                      <option value="IMP16">IMP16 - IMPONIBILE IVA 16%</option>
+                      <option value="IMP18">IMP18 - IMPONIBILE IVA 18%</option>
+                      <option value="IMP19">IMP19 - IMPONIBILE IVA 19%</option>
+                      <option value="IMP20">IMP20 - IMPONIBILE IVA 20%</option>
+                      <option value="IMP21">IMP21 - </option>
+                      <option value="IMP22">IMP22 - IMPONIBILE IVA 22%</option>
+                      <option value="IMP22CEE">IMP22CEE - IMPONIBILE IVA 22% CEE</option>
+                      <option value="IMP22COR">IMP22COR - IMPONIBILE IVA 22% CORRISPETTIVI</option>
+                      <option value="IMP22IND">IMP22IND - IMPONIBILE 22 IND.</option>
+                      <option value="IMP25">IMP25 - </option>
+                      <option value="IMP4IND">IMP4IND - IMPONIBILE 4 IND.</option>
+                      <option value="IND020I10">IND020I10 - IVA 10% INDETR. 20%</option>
+                      <option value="IND020I22">IND020I22 - IVA 22% INDETR. 20%</option>
+                      <option value="IND040I10">IND040I10 - IVA 10% INDETR. 40%</option>
+                      <option value="IND040I22">IND040I22 - IVA 22% INDETR. 40%</option>
+                      <option value="IND050I10">IND050I10 - IVA 10% INDETR. 50%</option>
+                      <option value="IND050I22">IND050I22 - IVA 22% INDETR. 50%</option>
+                      <option value="IND060I10">IND060I10 - IVA 10% INDETR. 60%</option>
+                      <option value="IND060I22">IND060I22 - IVA 22% INDETR. 60%</option>
+                      <option value="IND10">IND10 - IVA INDETR. 10%</option>
+                      <option value="IND100I10">IND100I10 - IVA 10% INDETR. 100%</option>
+                      <option value="IND100I22">IND100I22 - IVA 22% INDETR. 100%</option>
+                      <option value="IND20">IND20 - IVA INDETR. 20%</option>
+                      <option value="IND22">IND22 - IVA INDETR. 22%</option>
+                      <option value="IND4">IND4 - IVA INDETR. 4%</option>
+                      <option value="IND40">IND40 - IVA INDETR. 40%</option>
+                      <option value="IND60">IND60 - IVA INDETR. 60%</option>
+                      <option value="INSOL">INSOL - </option>
+                      <option value="IRC00">IRC00 - </option>
+                      <option value="IRC22">IRC22 - IVA REVERSE CHARGE BENI 22%</option>
+                      <option value="IRCINT22">IRCINT22 - IVA REVERSE CHARGE INTERNO 22%</option>
+                      <option value="IRS22">IRS22 - IVA REVERSE CHARGE SERVIZI 22%</option>
+                      <option value="IVA00">IVA00 - MOVIMENTO IVA</option>
+                      <option value="IVA01">IVA01 - </option>
+                      <option value="IVA02">IVA02 - </option>
+                      <option value="IVA04">IVA04 - IVA 4%</option>
+                      <option value="IVA04COR">IVA04COR - IVA 4% CORRISPETTIVI</option>
+                      <option value="IVA05">IVA05 - </option>
+                      <option value="IVA09">IVA09 - IVA 9%</option>
+                      <option value="IVA10">IVA10 - IVA 10%</option>
+                      <option value="IVA10COR">IVA10COR - IVA 10% CORRISPETTIVI</option>
+                      <option value="IVA13">IVA13 - IVA 13%</option>
+                      <option value="IVA16">IVA16 - IVA 16%</option>
+                      <option value="IVA18">IVA18 - IVA 18%</option>
+                      <option value="IVA19">IVA19 - IVA 19%</option>
+                      <option value="IVA20">IVA20 - IVA 20%</option>
+                      <option value="IVA21">IVA21 - </option>
+                      <option value="IVA22">IVA22 - IVA 22%</option>
+                      <option value="IVA22COR">IVA22COR - IVA 22% CORRISPETTIVI</option>
+                      <option value="N1">N1 - OPERAZIONI ESCLUSE EX ART. 15</option>
+                      <option value="N2">N2 - OPERAZIONI NON SOGGETTE</option>
+                      <option value="N2.1">N2.1 - NON SOGGETTE ALTRI CASI</option>
+                      <option value="N2.2">N2.2 - Fuori campo iva ex art. 13 c.5 DPR 633/7</option>
+                      <option value="N3">N3 - OPERAZIONI NON IMPONIBILI</option>
+                      <option value="N3.1">N3.1 - Esportazioni</option>
+                      <option value="N3.2">N3.2 - </option>
+                      <option value="N3.6">N3.6 - Altre operazioni che non concorrono</option>
+                      <option value="N4">N4 - ESENTE IVA ART. 124</option>
+                      <option value="N5">N5 - REGIME DEL MARGINE IVA NON ESPOSTA</option>
+                      <option value="N6">N6 - OPERAZIONI REVERSE CHARGE</option>
+                      <option value="N7">N7 - IVA ASSOLTA IN ALTRO STATO UE</option>
+                      <option value="NDE020I10">NDE020I10 - IVA 10% NON DEDUCIBILE 20%</option>
+                      <option value="NDE020I22">NDE020I22 - IVA 22% NON DEDUCIBILE 20%</option>
+                      <option value="NDE025I10">NDE025I10 - IVA 10% NON DEDUCIBILE 25%</option>
+                      <option value="NDE025I22">NDE025I22 - IVA 22% NON DEDUCIBILE 25%</option>
+                      <option value="NDE030I10">NDE030I10 - IVA 10% NON DEDUCIBILE 30%</option>
+                      <option value="NDE030I22">NDE030I22 - IVA 22% NON DEDUCIBILE 30%</option>
+                      <option value="NDE050I10">NDE050I10 - IVA 10% NON DEDUCIBILE 50%</option>
+                      <option value="NDE050I22">NDE050I22 - IVA 22% NON DEDUCIBILE 50%</option>
+                      <option value="NDE080I10">NDE080I10 - IVA 10% NON DEDUCIBILE 80%</option>
+                      <option value="NDE080I22">NDE080I22 - IVA 22% NON DEDUCIBILE 80%</option>
+                      <option value="NDE100I10">NDE100I10 - IVA 10% NON DEDUCIBILE 100%</option>
+                      <option value="NDE100I22">NDE100I22 - IVA 22% NON DEDUCIBILE 100%</option>
+                      <option value="NDED80">NDED80 - NON DEDUCIBILE 80%</option>
+                      <option value="NOIVA">NOIVA - FUORI CAMPO IVA</option>
+                      <option value="PREV">PREV - </option>
+                      <option value="RCI00">RCI00 - IVA REVERSE CHARGE 0%</option>
+                      <option value="RCI22">RCI22 - REVERSE CHARGE BENI 22%</option>
+                      <option value="RCINT22">RCINT22 - REVERSE CHARGE INTERNO 22%</option>
+                      <option value="RCS22">RCS22 - REVERSE CHARGE SERVIZI 22%</option>
+                      <option value="RIGA">RIGA - RIGA ORDINE</option>
+                      <option value="RIT">RIT - RITENUTA SUBITA</option>
+                      <option value="SBF">SBF - SALDO BUON FINE</option>
+                      <option value="SCONT">SCONT - SCONTO VENDITA</option>
+                      <option value="SCT02">SCT02 - SCONTO DEL 2 %</option>
+                      <option value="SCT03">SCT03 - SCONTO DEL 3 %</option>
+                      <option value="SCT04">SCT04 - SCONTO DEL 4%</option>
+                      <option value="SCT05">SCT05 - SCONTO DEL 5 %</option>
+                      <option value="SCT07">SCT07 - SCONTO DEL 7%</option>
+                      <option value="SCT10">SCT10 - SCONTO DEL 10%</option>
+                      <option value="SCT20">SCT20 - SCONTO DEL 20%</option>
+                      <option value="SPE00">SPE00 - </option>
+                      <option value="SPE04">SPE04 - </option>
+                      <option value="SPE10">SPE10 - </option>
+                      <option value="SPE20">SPE20 - SPESE VARIE</option>
+                      <option value="SPE22">SPE22 - SPESE VARIE</option>
+                      <option value="TRA19">TRA19 - TRASPORTO IVA 19%</option>
+                      <option value="TRA20">TRA20 - TRASPORTO IVA 20%</option>
+                      <option value="TRA22">TRA22 - TRASPORTO IVA 22%</option>
+                      <option value="TRASP">TRASP - TRASPORTO</option>
+                      <option value="VEND">VEND - VENDITA</option>
+                    </select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td align="center"><input class="conto" id="conto_6" name="conto_6" type="text" size="10" maxlength="10"
+                    value="" ondblclick="NewWindow('contcontotrova.php?id_campo=conto_6',600,500)"
+                    onblur="MioTrovaConto(this.value,6)"></td>
+                <td width="50%">
+                  <div id="desc_6"> </div>
+                </td>
+                <td align="right"><input class="soldi" id="dare_6" name="dare_6" type="text" size="12" maxlength="12"
+                    value="" onblur="Numerico(this,2);TotDareAvere();"></td>
+                <td align="right"><input class="soldi" id="avere_6" name="avere_6" type="text" size="12" maxlength="12"
+                    value="" onblur="Numerico(this,2);TotDareAvere();"></td>
+                <td align="center">
+                  <div id="causa_div_" 6="">
+                    <select class="causale" name="causa_6">
+                      <option value="">Scegli</option>
+                      <option selected="true" value=""> - </option>
+                      <option value="12345678">12345678 - </option>
+                      <option value="123456789999">123456789999 - </option>
+                      <option value="A0">A0 - ESENTE IVA ART. 124</option>
+                      <option value="A1910">A1910 - NON DETRAIBILE 10%</option>
+                      <option value="A1919">A1919 - NON DETRAIBILE 19%</option>
+                      <option value="A1920">A1920 - NON DETRAIBILE 20%</option>
+                      <option value="ACQ">ACQ - ACQUISTO</option>
+                      <option value="ART1">ART1 - NON ASSOG.AD IVA</option>
+                      <option value="ART10">ART10 - ESENTE ART.10</option>
+                      <option value="ART15">ART15 - ESCLUSO ART.15</option>
+                      <option value="ART17">ART17 - REVERSE CHARGE ART. 17</option>
+                      <option value="ART19">ART19 - NON DETRAIBILE ART19</option>
+                      <option value="ART2">ART2 - ESC. CAMPO IVA</option>
+                      <option value="ART25">ART25 - ESENTE ART.25</option>
+                      <option value="ART3">ART3 - ESENTE ART.3</option>
+                      <option value="ART41">ART41 - ESENTE ART.41</option>
+                      <option value="ART7">ART7 - ESENTE REV. CHARGE A7-ter D.p.r. 633/72</option>
+                      <option value="ART74">ART74 - ESCLUSO ART.74</option>
+                      <option value="ART8">ART8 - NON IMPONIBILE</option>
+                      <option value="ART9">ART9 - NON IMPONIBILE</option>
+                      <option value="BOLLO">BOLLO - IMP. BOLLO ESC. IVA</option>
+                      <option value="CEE16">CEE16 - IVA CEE 16%</option>
+                      <option value="CEE19">CEE19 - IVA CEE 19%</option>
+                      <option value="CEE20">CEE20 - IVA CEE 20%</option>
+                      <option value="CEE22">CEE22 - IVA CEE 22%</option>
+                      <option value="ENASARCO">ENASARCO - </option>
+                      <option value="IMB">IMB - IMBALLO</option>
+                      <option value="IMB20">IMB20 - IMBALLO IVA 20%</option>
+                      <option value="IMB22">IMB22 - IMBALLO IVA 22%</option>
+                      <option value="IMP00">IMP00 - ESENTE IVA ART. 124</option>
+                      <option value="IMP00COR">IMP00COR - </option>
+                      <option value="IMP01">IMP01 - </option>
+                      <option value="IMP02">IMP02 - </option>
+                      <option value="IMP04">IMP04 - IMPONIBILE IVA 4%</option>
+                      <option value="IMP04COR">IMP04COR - IMPONIBILE IVA 4% CORRISPETTIVI</option>
+                      <option value="IMP05">IMP05 - </option>
+                      <option value="IMP09">IMP09 - IMPONIBILE IVA 9%</option>
+                      <option value="IMP10">IMP10 - IMPONIBILE IVA 10%</option>
+                      <option value="IMP10COR">IMP10COR - IMPONIBILE IVA 10% CORRISPETTIVI</option>
+                      <option value="IMP10IND">IMP10IND - IMPONIBILE 10 IND.</option>
+                      <option value="IMP13">IMP13 - IMPONIBILE IVA 13%</option>
+                      <option value="IMP16">IMP16 - IMPONIBILE IVA 16%</option>
+                      <option value="IMP18">IMP18 - IMPONIBILE IVA 18%</option>
+                      <option value="IMP19">IMP19 - IMPONIBILE IVA 19%</option>
+                      <option value="IMP20">IMP20 - IMPONIBILE IVA 20%</option>
+                      <option value="IMP21">IMP21 - </option>
+                      <option value="IMP22">IMP22 - IMPONIBILE IVA 22%</option>
+                      <option value="IMP22CEE">IMP22CEE - IMPONIBILE IVA 22% CEE</option>
+                      <option value="IMP22COR">IMP22COR - IMPONIBILE IVA 22% CORRISPETTIVI</option>
+                      <option value="IMP22IND">IMP22IND - IMPONIBILE 22 IND.</option>
+                      <option value="IMP25">IMP25 - </option>
+                      <option value="IMP4IND">IMP4IND - IMPONIBILE 4 IND.</option>
+                      <option value="IND020I10">IND020I10 - IVA 10% INDETR. 20%</option>
+                      <option value="IND020I22">IND020I22 - IVA 22% INDETR. 20%</option>
+                      <option value="IND040I10">IND040I10 - IVA 10% INDETR. 40%</option>
+                      <option value="IND040I22">IND040I22 - IVA 22% INDETR. 40%</option>
+                      <option value="IND050I10">IND050I10 - IVA 10% INDETR. 50%</option>
+                      <option value="IND050I22">IND050I22 - IVA 22% INDETR. 50%</option>
+                      <option value="IND060I10">IND060I10 - IVA 10% INDETR. 60%</option>
+                      <option value="IND060I22">IND060I22 - IVA 22% INDETR. 60%</option>
+                      <option value="IND10">IND10 - IVA INDETR. 10%</option>
+                      <option value="IND100I10">IND100I10 - IVA 10% INDETR. 100%</option>
+                      <option value="IND100I22">IND100I22 - IVA 22% INDETR. 100%</option>
+                      <option value="IND20">IND20 - IVA INDETR. 20%</option>
+                      <option value="IND22">IND22 - IVA INDETR. 22%</option>
+                      <option value="IND4">IND4 - IVA INDETR. 4%</option>
+                      <option value="IND40">IND40 - IVA INDETR. 40%</option>
+                      <option value="IND60">IND60 - IVA INDETR. 60%</option>
+                      <option value="INSOL">INSOL - </option>
+                      <option value="IRC00">IRC00 - </option>
+                      <option value="IRC22">IRC22 - IVA REVERSE CHARGE BENI 22%</option>
+                      <option value="IRCINT22">IRCINT22 - IVA REVERSE CHARGE INTERNO 22%</option>
+                      <option value="IRS22">IRS22 - IVA REVERSE CHARGE SERVIZI 22%</option>
+                      <option value="IVA00">IVA00 - MOVIMENTO IVA</option>
+                      <option value="IVA01">IVA01 - </option>
+                      <option value="IVA02">IVA02 - </option>
+                      <option value="IVA04">IVA04 - IVA 4%</option>
+                      <option value="IVA04COR">IVA04COR - IVA 4% CORRISPETTIVI</option>
+                      <option value="IVA05">IVA05 - </option>
+                      <option value="IVA09">IVA09 - IVA 9%</option>
+                      <option value="IVA10">IVA10 - IVA 10%</option>
+                      <option value="IVA10COR">IVA10COR - IVA 10% CORRISPETTIVI</option>
+                      <option value="IVA13">IVA13 - IVA 13%</option>
+                      <option value="IVA16">IVA16 - IVA 16%</option>
+                      <option value="IVA18">IVA18 - IVA 18%</option>
+                      <option value="IVA19">IVA19 - IVA 19%</option>
+                      <option value="IVA20">IVA20 - IVA 20%</option>
+                      <option value="IVA21">IVA21 - </option>
+                      <option value="IVA22">IVA22 - IVA 22%</option>
+                      <option value="IVA22COR">IVA22COR - IVA 22% CORRISPETTIVI</option>
+                      <option value="N1">N1 - OPERAZIONI ESCLUSE EX ART. 15</option>
+                      <option value="N2">N2 - OPERAZIONI NON SOGGETTE</option>
+                      <option value="N2.1">N2.1 - NON SOGGETTE ALTRI CASI</option>
+                      <option value="N2.2">N2.2 - Fuori campo iva ex art. 13 c.5 DPR 633/7</option>
+                      <option value="N3">N3 - OPERAZIONI NON IMPONIBILI</option>
+                      <option value="N3.1">N3.1 - Esportazioni</option>
+                      <option value="N3.2">N3.2 - </option>
+                      <option value="N3.6">N3.6 - Altre operazioni che non concorrono</option>
+                      <option value="N4">N4 - ESENTE IVA ART. 124</option>
+                      <option value="N5">N5 - REGIME DEL MARGINE IVA NON ESPOSTA</option>
+                      <option value="N6">N6 - OPERAZIONI REVERSE CHARGE</option>
+                      <option value="N7">N7 - IVA ASSOLTA IN ALTRO STATO UE</option>
+                      <option value="NDE020I10">NDE020I10 - IVA 10% NON DEDUCIBILE 20%</option>
+                      <option value="NDE020I22">NDE020I22 - IVA 22% NON DEDUCIBILE 20%</option>
+                      <option value="NDE025I10">NDE025I10 - IVA 10% NON DEDUCIBILE 25%</option>
+                      <option value="NDE025I22">NDE025I22 - IVA 22% NON DEDUCIBILE 25%</option>
+                      <option value="NDE030I10">NDE030I10 - IVA 10% NON DEDUCIBILE 30%</option>
+                      <option value="NDE030I22">NDE030I22 - IVA 22% NON DEDUCIBILE 30%</option>
+                      <option value="NDE050I10">NDE050I10 - IVA 10% NON DEDUCIBILE 50%</option>
+                      <option value="NDE050I22">NDE050I22 - IVA 22% NON DEDUCIBILE 50%</option>
+                      <option value="NDE080I10">NDE080I10 - IVA 10% NON DEDUCIBILE 80%</option>
+                      <option value="NDE080I22">NDE080I22 - IVA 22% NON DEDUCIBILE 80%</option>
+                      <option value="NDE100I10">NDE100I10 - IVA 10% NON DEDUCIBILE 100%</option>
+                      <option value="NDE100I22">NDE100I22 - IVA 22% NON DEDUCIBILE 100%</option>
+                      <option value="NDED80">NDED80 - NON DEDUCIBILE 80%</option>
+                      <option value="NOIVA">NOIVA - FUORI CAMPO IVA</option>
+                      <option value="PREV">PREV - </option>
+                      <option value="RCI00">RCI00 - IVA REVERSE CHARGE 0%</option>
+                      <option value="RCI22">RCI22 - REVERSE CHARGE BENI 22%</option>
+                      <option value="RCINT22">RCINT22 - REVERSE CHARGE INTERNO 22%</option>
+                      <option value="RCS22">RCS22 - REVERSE CHARGE SERVIZI 22%</option>
+                      <option value="RIGA">RIGA - RIGA ORDINE</option>
+                      <option value="RIT">RIT - RITENUTA SUBITA</option>
+                      <option value="SBF">SBF - SALDO BUON FINE</option>
+                      <option value="SCONT">SCONT - SCONTO VENDITA</option>
+                      <option value="SCT02">SCT02 - SCONTO DEL 2 %</option>
+                      <option value="SCT03">SCT03 - SCONTO DEL 3 %</option>
+                      <option value="SCT04">SCT04 - SCONTO DEL 4%</option>
+                      <option value="SCT05">SCT05 - SCONTO DEL 5 %</option>
+                      <option value="SCT07">SCT07 - SCONTO DEL 7%</option>
+                      <option value="SCT10">SCT10 - SCONTO DEL 10%</option>
+                      <option value="SCT20">SCT20 - SCONTO DEL 20%</option>
+                      <option value="SPE00">SPE00 - </option>
+                      <option value="SPE04">SPE04 - </option>
+                      <option value="SPE10">SPE10 - </option>
+                      <option value="SPE20">SPE20 - SPESE VARIE</option>
+                      <option value="SPE22">SPE22 - SPESE VARIE</option>
+                      <option value="TRA19">TRA19 - TRASPORTO IVA 19%</option>
+                      <option value="TRA20">TRA20 - TRASPORTO IVA 20%</option>
+                      <option value="TRA22">TRA22 - TRASPORTO IVA 22%</option>
+                      <option value="TRASP">TRASP - TRASPORTO</option>
+                      <option value="VEND">VEND - VENDITA</option>
+                    </select>
+                  </div>
+                </td>
+              </tr>
+              <tr class="totali">
+                <td colspan="2"></td>
+                <td>
+                  <div class="soldi" id="tot_dare">0,00</div>
+                </td>
+                <td>
+                  <div class="soldi" id="tot_avere">0,00</div>
+                </td>
+                <td align="center">
+                  <div class="icona" style="float:none;"
+                    onclick="CreaCampoCausale(NuovaRigaRegistro('tab_dett_reg',0))">+Riga</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table border="0" width="100%" cellpadding="4" cellspacing="4">
+            <tbody>
+              <tr>
+                <td align="center" width="50%"><a href="#" class="tasto"
+                    onclick="VerificaRegistrazione(document.forms[0])">Salva</a></td>
+                <td align="center"><a href="#" class="tastor"
+                    onclick="if(confirm('Esci senza salvare ?')){SetConfirmExit(false); AnnullaOperazione();}">Annulla</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
 
       </div>
-    </div> -->
+    </div>
 
   </main>
 

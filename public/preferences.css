@@ -695,7 +695,7 @@ A:hover.vocemenu {
   color: #fff;
   text-align: center;
   line-height: 26px;
-  padding: 5px;
+  padding: 4px;
   background: #3415ff;
   border-radius: var(--border-radius)
 }
@@ -738,20 +738,21 @@ A:hover.vocemenu {
   text-align: center;
   line-height: 26px;
   background: #cc0606;
+  padding: 4px;
   border-radius: var(--border-radius)
 }
 
-:hover.tastor {
-  font-size: 22px;
+.tastor:hover {
+  background: #cc0606;
 }
 
-.testata {
+/* .testata {
   background-color: var(--secondary--color--200);
   font-weight: bold;
   /* border-spacing: 4px; */
   /* border: 1px solid #a0a0a0; */
   /*border-radius: 5px; -webkit-border-radius: 5px; padding:2px;*/
-}
+} */
 
 .testata_pagina {
   width: 100%;
@@ -1094,9 +1095,15 @@ A:hover.vocemenu {
   border-radius: var(--border-radius);
   -webkit-border-radius: var(--border-radius);
   -moz-border-radius: var(--border-radius);
-  margin-bottom:5px
+  margin-bottom: 5px;
+  padding: 4px;
 }
-.dettaglio td {
+.dettaglio tr:not(:last-child) {
+  background-color: var(--secondary--color--100);
+  margin: 2px;
+}
+.dettaglio td:not(:last-child) {
+  margin:4px;
   padding: 2px 5px;
   font-size: 0.8rem;
 }
@@ -1106,7 +1113,7 @@ A:hover.vocemenu {
   border-radius: var(--border-radius);
   -webkit-border-radius: var(--border-radius);
   -moz-border-radius: var(--border-radius);
-  margin-bottom:5px
+  margin-bottom: 5px
 }
 .testata td {
   padding: 2px 5px;
