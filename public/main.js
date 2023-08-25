@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   // Removendo borda tabela
-  $('.dettaglio').removeAttr('border');
+  // $('.attenzione a').removeClass('tasto');
 
   const passwordInput = $('#password');
   const showPasswordCheckbox = $('#show-password');

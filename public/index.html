@@ -17,11 +17,7 @@
     <img src="/images/dittaweb.svg" alt="Logo">
     <div>
       <button class="dropdown">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
-          viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-        </svg>
+        <img src="images/avatar.png" width="16" />
         <span>Paulo Paganelli<small>Amministrativo - Sviluppo</small></span>
       </button>
       <!-- <img src="/images/avatar.png" alt="Avatar"> -->
@@ -74,7 +70,38 @@
   </nav>
   <main id="content">
 
-    <div class="contents">
+    <div class="login">
+
+      <form class="login__form" name="loginform" action="login.php">
+
+        <h1>Dittaweb<span>Servizio di Gestione Aziendale via Web</span></h1>
+
+        <div class="form__group">
+          <label for="email">Codice azienda</label>
+          <input type="text" id="azienda" name="azienda" required="">
+        </div>
+
+        <div class="form__group">
+          <label for="email">Codice utente</label>
+          <input type="text" id="user" name="user" required="">
+        </div>
+
+        <div class="form__group">
+          <label for="password">Parola chiave</label>
+          <input type="password" id="password" name="password" required="">
+        </div>
+        <div class="form__group">
+          <input type="checkbox" id="show-password">
+          <label for="show-password"><small>Mostrar senha</small></label>
+        </div>
+
+        <a href="javascript:document.loginform.submit()" id="btn-submit">Entra</a>
+
+      </form>
+
+    </div>
+
+    <!-- <div class="contents">
       <div class="selezione">
         <table border="0" width="100%">
           <tbody>
@@ -180,10 +207,10 @@
           </tbody>
         </table>
       </div>
-      <div class="lavoro">
+      <div class="lavoro"> -->
 
 
-        <!-- <table class="listato">
+    <!-- <table class="listato">
           <tbody>
             <tr class="titolo">
               <td><strong>Operazione</strong></td>
@@ -308,7 +335,7 @@
           </tbody>
         </table> -->
 
-        <form method="POST" action="cont_registra.php?ope=salva">
+    <!-- <form method="POST" action="cont_registra.php?ope=salva">
           <table border="0" width="100%" cellpadding="3" cellspacing="0" class="testata" onclick="SetConfirmExit(true)">
             <tbody>
               <tr>
@@ -1376,10 +1403,12 @@
               </tr>
             </tbody>
           </table>
-        </form>
+        </form> -->
 
-      </div>
-    </div>
+
+
+    <!-- </div>
+    </div> -->
 
   </main>
 
